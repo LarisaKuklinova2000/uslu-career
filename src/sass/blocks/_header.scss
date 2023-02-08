@@ -1,0 +1,79 @@
+.header {
+    width: 100%;
+    height: 100vh;
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+    &__half {
+        width: 50%;
+        position: absolute;
+        height: 100%;
+        top:0;
+        z-index:1;
+        filter: grayscale(100%);
+        transition: all 0.5s ease;
+        &:nth-child(1) {
+            left: 0;
+            background: url('../img/promoLs.png') center center/cover no-repeat;
+        }
+        &:nth-child(2) {
+            left: 50%;
+            background: url('../img/promoRs.png') center center/cover no-repeat
+        }
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+    &__item {
+        height: 100%;
+        width: 100%;
+        transition: all 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 60px 120px 170px 120px;
+    }
+    .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 200px;
+        .main-link {
+            font-size: 60px;
+        }
+    }
+    h1 {
+        margin-bottom: 30px;
+    }
+    a {
+        width: max-content;
+        color: white;
+        font-size: 26px;
+        line-height: 30px;
+        text-decoration: none;
+        margin-bottom: 20px;
+        position: relative;
+	    cursor: pointer;
+        &:after {
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #00a650;
+            content: "";
+            transition: width 0.3s ease-out;
+        }
+    }
+    a:hover:after,
+    a:focus:after {
+        width: 100%;
+    }
+    .text-logo {
+        font-size: 20px;
+        color: white;
+        align-self: self-end;
+    }
+}
