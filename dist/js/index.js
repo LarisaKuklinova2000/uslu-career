@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.feed = feed;
         }
 
-        
         closeAllModal() {
             document.querySelectorAll('.modal__wrapper').forEach(item => {
                 item.style.left = '-100%';
@@ -148,25 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    getResource('https://sb-cats.herokuapp.com/api/2/LarisaKuklinova2000/show')
-        .then(data => {
-            data.data.forEach((
-                {id,
-                name,
-                favourite,
-                rate,
-                age,
-                description,
-                img_link}
-                ) => {
-            new CatCard(id,
-                name,
-                favourite,
-                rate,
-                age,
-                description,
-                img_link).init();
-        });
-    });
+    getResource('https://raw.githubusercontent.com/LarisaKuklinova2000/uslu-career/main/vacancy.json')
+        .then(res => console.log(res.vacancy));
 
 });
