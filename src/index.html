@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Bubbles&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/general.min.css">
-    <title>Cats</title>
+    <title>Career</title>
 </head>
 <body>
     <section class="header">
@@ -45,11 +45,11 @@
                             </defs>
                         </svg>
                     </div>
-                    <div class="links">
-                        <h1><a class="main-link" href="#">Вакансии</a></h1>
-                        <a href="">Консалтинг</a>
-                        <a href="">In-house</a>
-                        <a href="">Госслужба</a>
+                    <div class="links scrollto">
+                        <h1><a class="main-link" href="#vacancyList">Вакансии</a></h1>
+                        <a href="#consaltingCards">Консалтинг</a>
+                        <a href="#in-houseCards">In-house</a>
+                        <a href="#govServeCards">Госслужба</a>
                     </div>
                 </div>
             </div>
@@ -60,10 +60,10 @@
                         <br>
                         УрГЮУ им. В.Ф. Яковлева
                     </div>
-                    <div class="links">
-                        <h1><a class="main-link" href="#">Стажировки</a></h1>
-                        <a href="">Для 2-3 курса</a>
-                        <a href="">Для выпускников</a>
+                    <div class="links scrollto">
+                        <h1><a class="main-link" href="#intern">Стажировки</a></h1>
+                        <a href="#for2and3CoursesCards">Для 2-3 курса</a>
+                        <a href="#forGraduatesCards">Для выпускников</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                 <div class="vacancy__promo-img">
                     <img src="/img/vacancyPromo.png" alt="">
                 </div>
-                <div class="vacancy__promo-text">
+                <div class="vacancy__promo-text" id="vacancyList">
                     <h2>Юридические вакансии</h2>
                     <br><br>
                     Центр карьеры активно сотрудничает с работодателями разных юридических сфер для того, чтобы ты мог найти достойное применение знаниям и навыкам, полученным
@@ -101,65 +101,6 @@
                     <div 
                         class="vacancy__cards"
                         id="consaltingCards">
-                        <!-- <div class="card">
-                            <div class="card__title">Помощник юриста</div>
-                            <div class="card__employer">ЮФ “Урал” | Шевченко, 18</div>
-                            <div class="card__salary">20 000 - 35 000 руб.</div>
-                            <div class="card__tags">
-                                <div class="card__tags-item">#Cтудент старших курсов</div>
-                                <div class="card__tags-item">#Полная занятость</div>
-                                <div class="card__tags-item">#Опыт не требуется</div>
-                            </div>
-                            <div class="card__buttons">
-                                <button class="moreInfoBtn">Подробнее</button>
-                                <button class="feed">Связаться</button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__title">Помощник юриста</div>
-                            <div class="card__employer">ЮФ “Урал” | Шевченко, 18</div>
-                            <div class="card__salary">20 000 - 35 000 руб.</div>
-                            <div class="card__tags">
-                                <div class="card__tags-item">#Cтудент старших курсов</div>
-                                <div class="card__tags-item">#Полная занятость</div>
-                                <div class="card__tags-item">#Опыт не требуется</div>
-                            </div>
-                            <div class="card__buttons">
-                                <button class="moreInfoBtn">Подробнее</button>
-                                <button class="feed">Связаться</button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__title">Помощник юриста</div>
-                            <div class="card__employer">ЮФ “Урал” | Шевченко, 18</div>
-                            <div class="card__salary">20 000 - 35 000 руб.</div>
-                            <div class="card__tags">
-                                <div class="card__tags-item">#Cтудент старших курсов</div>
-                                <div class="card__tags-item">#Полная занятость</div>
-                                <div class="card__tags-item">#Опыт не требуется</div>
-                            </div>
-                            <div class="card__buttons">
-                                <button class="moreInfoBtn">Подробнее</button>
-                                <button class="feed">Связаться</button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__title">Помощник юриста</div>
-                            <div class="card__employer">ЮФ “Урал” | Шевченко, 18</div>
-                            <div class="card__salary">20 000 - 35 000 руб.</div>
-                            <div class="card__tags">
-                                <div class="card__tags-item">#Cтудент старших курсов</div>
-                                <div class="card__tags-item">#Полная занятость</div>
-                                <div class="card__tags-item">#Опыт не требуется</div>
-                            </div>
-                            <div class="card__buttons">
-                                <button class="moreInfoBtn">Подробнее</button>
-                                <button class="feed">Связаться</button>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -188,10 +129,80 @@
 
                     </div>
                 </div>
+            </div>
+
+            <div class="vacancy__promo">
+                <div class="vacancy__promo-img">
+                    <img src="/img/internPromo.png" alt="">
+                </div>
+                <div class="vacancy__promo-text" id="intern">
+                    <h2>Стажировки для студентов</h2>
+                    <br><br>
+                    Юридический университет - главный спутник студентов
+                    на пути профессионального становления. Однако практика
+                    и теория в юридической работе настолько разнятся, что
+                    стать квалифицированным специалистом без приобретения
+                    навыков работы “на земле” крайне трудно. 
+                    <br><br>
+                    Именно поэтому Центр карьеры УрГЮУ им. В.Ф. Яковлева
+                    активно развивает сотрудничество с работодателями
+                    в сфере студенческих стажировок. Знакомство с практикой
+                    позволит тебе начать нарабатывать опыт, необходимый для дальнейшего трудоустройства, а символическое вознаграждение за работу будет приятным бонусом!
+                </div>
+            </div>
+
+            <div class="vacancy__items">
+                <div class="vacancy__wrapper vacancy__for2and3Courses">
+                    <div class="vacancy__header vacancy__for2and3Courses-header">
+                        <div class="devider"></div>
+                        <h2 class="title-devider">Для 2-3 курса</h2>
+                        <div class="devider"></div>
+                    </div>
+                    <div 
+                        class="vacancy__cards"
+                        id="for2and3CoursesCards">
+                    </div>
+                </div>
+
+                <div class="vacancy__wrapper vacancy__forGraduates">
+                    <div class="vacancy__header vacancy__forGraduates-header">
+                        <div class="devider"></div>
+                        <h2 class="title-devider">Для выпускников</h2>
+                        <div class="devider"></div>
+                    </div>
+                    <div 
+                        class="vacancy__cards"
+                        id="forGraduatesCards">
+
+                    </div>
+                </div>
 
             </div>
+
         </div>
     </section>
+
+    <section class="footer">
+        <div class="socialLinks__wrapper">
+            <div class="socialLinks__item">
+                <div class="icon"><a href=""><i class="fa-solid fa-square-phone"></i></a></div>
+                <div class="link">+7 (343) 367-40-66</div>
+            </div>
+
+            <div class="socialLinks__item">
+                <div class="icon"><a href=""><i class="fa-solid fa-square-envelope"></i></a></div>
+                <div class="link">careera@usla.ru</div>
+            </div>
+
+            <div class="socialLinks__item">
+                <div class="icon"><a href=""><i class="fa-brands fa-vk"></i></a></div>
+                <div class="link">@uslu.career</div>
+            </div>
+        </div>
+        <div class="copyright">© Центр карьеры и трудоустройства УрГЮУ им. В.Ф. Яковлева, 2023</div>
+    </section>
+
+    <div class="btn-up btn-up_hide"></div>
 
     <!-- <section class="main-overlay">
         <div class="form">

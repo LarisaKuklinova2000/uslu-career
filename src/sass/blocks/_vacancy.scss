@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        padding-top: 30px;
         &-img {
             width: 50%;
             img {
@@ -58,5 +59,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 450px);
         gap: 30px;
+        justify-content: center;
     }
 }
