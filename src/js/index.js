@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
             element.innerHTML = `
                 <div class="card__title">${this.employer}</div>
                 <div class="card__employer">${this.jobTitle}</div>
-                <div class="card__salary">${this.salary} руб.</div>
+                <div class="card__salary">${this.salary}</div>
                 <div class="card__tags">${this.tags.join('<br>')}</div>
                 <div class="card__buttons">
                     <button class="moreInfoBtn">Подробнее</button>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    getResource('https://raw.githubusercontent.com/LarisaKuklinova2000/uslu-career/main/vacancy.json')
+    getResource('https://api.npoint.io/b2d5cb84803d5d39b240')
         .then(res => res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
             new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed).init()
         }));
