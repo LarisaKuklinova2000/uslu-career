@@ -59,6 +59,66 @@
       "tags": ["withoutExp", "fullTime"],
       "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
       "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    }, 
+    {
+      "id": 19,
+      "category": "consalting",
+      "jobTitle": "помошник юриста",
+      "employer": "козлов и парнерыsa",
+      "salary": 1005002,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    },
+    {
+      "id": 16,
+      "category": "in-house",
+      "jobTitle": "копировальная машина",
+      "employer": "алтушкины",
+      "salary": 1060,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    },
+    {
+      "id": 15,
+      "category": "govServe",
+      "jobTitle": "РАБотка",
+      "employer": "администрация президента",
+      "salary": 100500,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    },
+    {
+      "id": 14,
+      "category": "consalting",
+      "jobTitle": "помошник младшего юриста",
+      "employer": "ЛОЙС",
+      "salary": 45000,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    },
+    {
+      "id": 13,
+      "category": "in-house",
+      "jobTitle": "курьер",
+      "employer": "химмаш",
+      "salary": 23000,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
+    },
+    {
+      "id": 12,
+      "category": "govServe",
+      "jobTitle": "РАБотничек",
+      "employer": "мировой суд",
+      "salary": 13000,
+      "tags": ["withoutExp", "fullTime"],
+      "link": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg",
+      "feed": "https://upload.wikimedia.org/wikipedia/ru/0/02/Гачимучи.jpg"
     }
   ]
 }
