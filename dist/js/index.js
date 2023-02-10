@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="form__img">
                     <img src="./img/formImgGroup.svg" alt="">
                 </div>
-                <form class="form__items">
+                <form class="form__items" action="https://formspree.io/f/xknajzoz" method="POST" enctype="multipart/form-data">
                     <div class="titles">
                         <h2>Откликнуться на вакансию</h2>
                         <h3>название вакансии тут будет</h3>
@@ -120,13 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
 
             const myForm = document.querySelector('.form__items');
-            
-            myForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const formData = Object.fromEntries(new FormData(myForm));
-                const json = JSON.stringify(formData);
-                console.log(json)
-            });
         }
 
         setListeners() {
