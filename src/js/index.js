@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openModal(id) {
             let vacancyInfo = vacancyArr.filter(item => item.id == id)[0]
+            console.log(vacancyInfo.employer)
             const element = document.createElement('div');
             element.classList.add('form');
             element.innerHTML = `
@@ -89,20 +90,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="form__img">
                     <img src="./img/formImgGroup.svg" alt="">
                 </div>
-                <form class="form__items" action="https://formspree.io/f/xknajzoz" method="POST" enctype="multipart/form-data">
+                <form class="form__items" enctype="multipart/form-data" method="post" id="form">
                     <div class="titles">
                         <h2>Откликнуться на вакансию</h2>
                         <h3>название вакансии тут будет</h3>
                     </div>
                     <input class="hiddenInputs" name="jobTitle" type="text" value='${vacancyInfo.jobTitle}' required>
                     <input class="hiddenInputs" name="employer" type="text" value='${vacancyInfo.employer}' required>
-                    <input class="FIOInput" name="FIO" type="text" placeholder="Укажите Ваше ФИО" required>
+                    <input class="FIOInput" name="surnameName" type="text" placeholder="Укажите Ваше ФИО" required>
                     <div class="addFile__wrapper">
                         <label for="resumeFile"><i class="fa-solid fa-arrow-up-from-bracket"></i></label>
                         <div class="addFile__text">Прикрепите файл с Вашим резюме <span style="font-weight: bold">в формате .PDF</span>
                             <div class="uploadFileName">выберите файл</div>
                         </div>
-                        <input class="resume" name="resumeFile" type="file" id="resumeFile" required/>
+                        <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required/>
                     </div>
                     <button type="submit" id="sendForm">Отправить</button>
                     <div class="noResume">
@@ -119,7 +120,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.uploadFileName').textContent = document.querySelector('#resumeFile').files[0].name
             })
 
-            const myForm = document.querySelector('.form__items');
+            document.querySelector('.form__items').addEventListener('submit', (e) => {
+                send(e, './send.php')
+            })
+
+            function send(event, php){
+                console.log("Отправка запроса");
+                event.preventDefault ? event.preventDefault() : event.returnValue = false;
+                var req = new XMLHttpRequest();
+                req.open('POST', php, true);
+                req.onload = function() {
+                    if (req.status >= 200 && req.status < 400) {
+                        let json = JSON.parse(this.response); // Ебанный internet explorer 11
+                        
+                        // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+                        if (json.result == "success") {
+                            // Если сообщение отправлено
+                            alert("Сообщение отправлено");
+                        } else {
+                            // Если произошла ошибка
+                            alert("Ошибка. Сообщение не отправлено");
+                        }
+                    // Если не удалось связаться с php файлом
+                    } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
+    
+                // Если не удалось отправить запрос. Стоит блок на хостинге
+                req.onerror = function() {alert("Ошибка отправки запроса");};
+                req.send(new FormData(event.target));
+            }
         }
 
         setListeners() {
