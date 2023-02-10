@@ -48,6 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return await result.json();
     };
 
+    const postData = async (url, data) => {
+        const result = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        });
+        return await result;
+    };
+
     let vacancyArr = [];
 
     class EmployerCard {
@@ -96,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3>название вакансии тут будет</h3>
                     </div>
                     <input class="hiddenInputs" name="jobTitle" type="text" value='${vacancyInfo.jobTitle}' required>
-                    <input class="hiddenInputs" name="employer" type="text" value='${vacancyInfo.employer}' required>
+                    <input class="hiddenInputs" name="employer" type="text" value='${vacancyInfo.employer.replace(/['"«»]/g, ' ')}' required>
                     <input class="FIOInput" name="surnameName" type="text" placeholder="Укажите Ваше ФИО" required>
                     <div class="addFile__wrapper">
                         <label for="resumeFile"><i class="fa-solid fa-arrow-up-from-bracket"></i></label>
@@ -120,34 +131,65 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.uploadFileName').textContent = document.querySelector('#resumeFile').files[0].name
             })
 
-            document.querySelector('.form__items').addEventListener('submit', (e) => {
-                send(e, './send.php')
-            })
+            $('.form__items').on('submit', function(e){
+                e.preventDefault()
+                var form = $(this); // Предположу, что этот код выполняется в обработчике события 'submit' формы
+                var data = new FormData();  // Для отправки файлов понадобится объект FormData. Подробнее про него можно прочитать в документации - https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
-            function send(event, php){
-                console.log("Отправка запроса");
-                event.preventDefault ? event.preventDefault() : event.returnValue = false;
-                var req = new XMLHttpRequest();
-                req.open('POST', php, true);
-                req.onload = function() {
-                    if (req.status >= 200 && req.status < 400) {
-                        let json = JSON.parse(this.response); // Ебанный internet explorer 11
+                // Сбор данных из обычных полей
+                form.find(':input[name]').not('[type="file"]').each(function() { 
+                    var field = $(this);
+                    data.append(field.attr('name'), field.val());
+                });
+
+                // Сбор данных о файле (будет немного отличаться для нескольких файлов)
+                var filesField = form.find('input[type="file"]');
+                var fileName = filesField.attr('name');
+                var file = filesField.prop('files')[0];
+                data.append(fileName, file) ;
+
+                // Отправка данных
+                var url = 'send.php';
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    contentType: false,
+                    cache: false, 
+                    processData:false, 
+                    success: function(response) {
+                        console.log(response)
+                    }           
+                });  
+            })          
+
+
+
+            // function send(event, php){
+            //     console.log("Отправка запроса");
+            //     event.preventDefault ? event.preventDefault() : event.returnValue = false;
+            //     var req = new XMLHttpRequest();
+            //     req.open('POST', php, true);
+            //     req.onload = function() {
+            //         if (req.status >= 200 && req.status < 400) {
+            //             let json = JSON.parse(this.response); // Ебанный internet explorer 11
                         
-                        // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
-                        if (json.result == "success") {
-                            // Если сообщение отправлено
-                            alert("Сообщение отправлено");
-                        } else {
-                            // Если произошла ошибка
-                            alert("Ошибка. Сообщение не отправлено");
-                        }
-                    // Если не удалось связаться с php файлом
-                    } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
+            //             // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+            //             if (json.result == "success") {
+            //                 // Если сообщение отправлено
+            //                 alert("Сообщение отправлено");
+            //             } else {
+            //                 // Если произошла ошибка
+            //                 alert("Ошибка. Сообщение не отправлено");
+            //             }
+            //         // Если не удалось связаться с php файлом
+            //         } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
     
-                // Если не удалось отправить запрос. Стоит блок на хостинге
-                req.onerror = function() {alert("Ошибка отправки запроса");};
-                req.send(new FormData(event.target));
-            }
+            //     // Если не удалось отправить запрос. Стоит блок на хостинге
+            //     req.onerror = function() {alert("Ошибка отправки запроса");};
+            //     req.send(new FormData(event.target));
+            // }
         }
 
         setListeners() {
