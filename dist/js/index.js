@@ -63,20 +63,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         renderCards() {
-            const element = document.createElement('div');
-            element.classList.add('card', `card${this.id}`);
-            element.style.background = `white`;
+            const element = document.createElement('div')
+            element.classList.add('card', `card${this.id}`)
+            element.style.background = `white`
             element.innerHTML = `
                 <div class="card__title">${this.employer}</div>
                 <div class="card__employer">${this.jobTitle}</div>
                 <div class="card__salary">${this.salary}</div>
                 <div class="card__tags">${this.tags.join('<br>')}</div>
                 <div class="card__buttons">
-                    <button class="moreInfoBtn">Подробнее</button>
+                    <a class="moreInfoBtn" href='${this.link}' target="_blank">Подробнее</a>
                     <button class="feed" data-id=${this.id}>Связаться</button>
                 </div>
-            `;
-            document.querySelector(`#${this.category}Cards`).append(element);
+            `
+            document.querySelector(`#${this.category}Cards`).append(element)
         }
 
         openModal(id) {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <br>
                         и мы поможем тебе круто презентовать себя!
                     </div>
-                    <div id="loader-identity"></div>
+                    <div id="loader-identity" class='animate__animated animate__fadeIn'><div id="spinner"></div></div>
                 </form>
             `
             document.querySelector('.main-overlay').append(element);
@@ -120,13 +120,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.uploadFileName').textContent = document.querySelector('#resumeFile').files[0].name
             })
 
-            // выводим идентификатор
             function showLoaderIdentity() 
             {
-                $("#loader-identity").show("slow") 
+                $("#loader-identity").show() 
             }
             
-            // скрываем идентификатор
             function hideLoaderIdentity() 
             {
             $("#loader-identity").hide();  
