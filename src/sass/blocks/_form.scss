@@ -7,7 +7,7 @@
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.7);
     transition: all 0.3 ease;
-    transform: scale(0);
+    --animate-duration: 0.3s;
 }
 
 .form {
@@ -33,6 +33,7 @@
     }
     &__img {
         width: 30%;
+        height: 100%;
     }
     &__items {
         height: 100%;
@@ -121,3 +122,42 @@
         font-size: 25px;
     }
 }
+
+.hidden {
+    display: none;
+}
+
+.vivsible {
+    display: block;
+}
+
+#loader-identity {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 9999;
+    background: url('../img/pngwing.png') center center/cover no-repeat;
+    animation: 1s linear 0s normal none infinite running rot;
+    background-size: 50% auto;
+}
+
+@keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

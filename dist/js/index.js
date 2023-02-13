@@ -48,17 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return await result.json();
     };
 
-    const postData = async (url, data) => {
-        const result = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: data
-        });
-        return await result;
-    };
-
     let vacancyArr = [];
 
     class EmployerCard {
@@ -92,9 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openModal(id) {
             let vacancyInfo = vacancyArr.filter(item => item.id == id)[0]
-            console.log(vacancyInfo.employer)
             const element = document.createElement('div');
-            element.classList.add('form');
+            element.classList.add('form', 'animate__animated', 'animate__fadeIn');
             element.innerHTML = `
                 <i class="fa-solid fa-square-xmark" id="modal__close"></i>
 
@@ -104,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <form class="form__items" enctype="multipart/form-data" method="post" id="form">
                     <div class="titles">
                         <h2>Откликнуться на вакансию</h2>
-                        <h3>название вакансии тут будет</h3>
+                        <h3>${vacancyInfo.employer.replace(/['"«»]/g, ' ')}, ${vacancyInfo.jobTitle}</h3>
                     </div>
                     <input class="hiddenInputs" name="jobTitle" type="text" value='${vacancyInfo.jobTitle}' required>
                     <input class="hiddenInputs" name="employer" type="text" value='${vacancyInfo.employer.replace(/['"«»]/g, ' ')}' required>
@@ -114,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="addFile__text">Прикрепите файл с Вашим резюме <span style="font-weight: bold">в формате .PDF</span>
                             <div class="uploadFileName">выберите файл</div>
                         </div>
-                        <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required/>
+                        <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required accept="application/pdf"/>
                     </div>
                     <button type="submit" id="sendForm">Отправить</button>
                     <div class="noResume">
@@ -122,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <br>
                         и мы поможем тебе круто презентовать себя!
                     </div>
+                    <div id="loader-identity"></div>
                 </form>
             `
             document.querySelector('.main-overlay').append(element);
@@ -131,24 +120,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.uploadFileName').textContent = document.querySelector('#resumeFile').files[0].name
             })
 
-            $('.form__items').on('submit', function(e){
-                e.preventDefault()
-                var form = $(this); // Предположу, что этот код выполняется в обработчике события 'submit' формы
-                var data = new FormData();  // Для отправки файлов понадобится объект FormData. Подробнее про него можно прочитать в документации - https://developer.mozilla.org/en-US/docs/Web/API/FormData
+            // выводим идентификатор
+            function showLoaderIdentity() 
+            {
+                $("#loader-identity").show("slow") 
+            }
+            
+            // скрываем идентификатор
+            function hideLoaderIdentity() 
+            {
+            $("#loader-identity").hide();  
+            }
 
-                // Сбор данных из обычных полей
+            $('.form__items').on('submit', function(e){
+                showLoaderIdentity()
+                e.preventDefault()
+                var form = $(this);
+                var data = new FormData();
+
                 form.find(':input[name]').not('[type="file"]').each(function() { 
                     var field = $(this);
                     data.append(field.attr('name'), field.val());
                 });
 
-                // Сбор данных о файле (будет немного отличаться для нескольких файлов)
                 var filesField = form.find('input[type="file"]');
                 var fileName = filesField.attr('name');
                 var file = filesField.prop('files')[0];
                 data.append(fileName, file) ;
 
-                // Отправка данных
                 var url = 'send.php';
 
                 $.ajax({
@@ -157,39 +156,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     data: data,
                     contentType: false,
                     cache: false, 
-                    processData:false, 
-                    success: function(response) {
-                        console.log(response)
-                    }           
-                });  
+                    processData:false
+                }).done(function() {
+                    const overlay = document.querySelector('.main-overlay')
+                    alert('резюме успешно отправлено, с Вами свяжуться')
+                    overlay.classList.replace('visible', 'hidden')
+                    document.body.style.overflow = '';
+                    document.querySelector('.form').remove()
+                    hideLoaderIdentity()
+                }).fail(function() {
+                    hideLoaderIdentity()
+                    alert('отправка не удалась, попробуйте еще раз')
+                })
             })          
-
-
-
-            // function send(event, php){
-            //     console.log("Отправка запроса");
-            //     event.preventDefault ? event.preventDefault() : event.returnValue = false;
-            //     var req = new XMLHttpRequest();
-            //     req.open('POST', php, true);
-            //     req.onload = function() {
-            //         if (req.status >= 200 && req.status < 400) {
-            //             let json = JSON.parse(this.response); // Ебанный internet explorer 11
-                        
-            //             // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
-            //             if (json.result == "success") {
-            //                 // Если сообщение отправлено
-            //                 alert("Сообщение отправлено");
-            //             } else {
-            //                 // Если произошла ошибка
-            //                 alert("Ошибка. Сообщение не отправлено");
-            //             }
-            //         // Если не удалось связаться с php файлом
-            //         } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
-    
-            //     // Если не удалось отправить запрос. Стоит блок на хостинге
-            //     req.onerror = function() {alert("Ошибка отправки запроса");};
-            //     req.send(new FormData(event.target));
-            // }
         }
 
         setListeners() {
@@ -197,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   overlay = document.querySelector('.main-overlay');
             overlay.addEventListener('click', (e) => {
                 if (e.target.id === 'modal__close') {
-                    document.querySelector('.main-overlay').style.transform = 'scale(0)';
+                    overlay.classList.replace('visible', 'hidden')
                     document.body.style.overflow = '';
                     e.target.parentNode.remove()
                 }
@@ -205,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
             card.addEventListener('click', (e) => {
                 if (e.target.classList.contains('feed')) {
                     this.openModal(e.target.dataset.id)
-                    document.querySelector('.main-overlay').style.transform = 'scale(1)'
+                    overlay.classList.replace('hidden', 'visible')
                     document.body.style.overflow = 'hidden'
                 }
             });
@@ -217,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    getResource('https://api.npoint.io/b2d5cb84803d5d39b240')
+    getResource('https://api.npoint.io/31d227346a7626519407')
         .then(res => {
             res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
             new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed).init()})
