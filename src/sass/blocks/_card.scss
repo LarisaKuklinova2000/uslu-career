@@ -41,7 +41,7 @@
             cursor: pointer;
         }
         a {
-            padding-top: 2.5%;
+            padding-top: 8px;
         }
         .moreInfoBtn {
             background-color: white;
@@ -112,13 +112,12 @@
             font-size: 15px;
         }
         &__buttons {
-            justify-content: space-evenly;
+            justify-content: space-between;
             a,button {
                 width: 100px;
                 height: 40px;
                 border-radius: 100px;
                 font-size: 12px;
-                cursor: pointer;
             }
         }
     }
