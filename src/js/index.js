@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <br>
                         и мы поможем тебе круто презентовать себя!
                     </div>
-                    <div id="loader-identity" class='animate__animated animate__fadeIn'><div id="spinner"></div></div>
+                    <div id="loader-identity" class='animate__animated animate__fadeIn'><div id="spinner"><img src="img/loading.png" alt="загрузка..."></div></div>
                 </form>
             `
             document.querySelector('.main-overlay').append(element);

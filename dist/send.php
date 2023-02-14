@@ -14,7 +14,7 @@ $file = $_FILES['resumeFile'];
 $title = "Заголовок письма";
 $body = "
 <h2>Новое резюме</h2>
-<b>Имя:</b> $name <b>соискатель на должность:</b><b> $email</b><b> в: $text</b>
+Имя:<b>$name</b> соискатель на должность:<b> $email</b> в: <b>$text</b>
 ";
 
 // Настройки PHPMailer
@@ -27,14 +27,14 @@ try {
     $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
     $mail->Host       = 'smtp.rambler.ru'; // SMTP сервера вашей почты
-    $mail->Username   = 'gnosticism2@rambler.ru'; // Логин на почте
-    $mail->Password   = 'Loys22042019'; // Пароль на почте
+    $mail->Username   = 'uslu_career_web@rambler.ru'; // Логин на почте
+    $mail->Password   = 'tezwi6-cyzqyh-nohvEx'; // Пароль на почте
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('gnosticism2@rambler.ru', 'Career'); // Адрес самой почты и имя отправителя
+    $mail->setFrom('uslu_career_web@rambler.ru', 'Career'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('gnosticism100500@gmail.com');
+    $mail->addAddress('careera@usla.ru');
 
     // Прикрипление файлов к письму
 if (!empty($file['name'][0])) {

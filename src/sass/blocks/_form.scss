@@ -146,28 +146,35 @@
 
 #spinner {
     height: 100%;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    background: url('../img/pngwing.png') center center/cover no-repeat;
-    animation: 1s linear 0s normal none infinite running rot;
+    img {
+        scale: 0.5;
+        display: block;
+        height: 300%;
+        width: 100%;
+        margin: 0 auto;
+        animation: 2s linear 0s normal infinite fadeInUp;
+    } 
 }
 
-@keyframes rot {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+.fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
-@-webkit-keyframes rot {
+
+@keyframes fadeInUp {
     0% {
-        transform: rotate(0deg);
+        opacity: 1;
+        transform: translateY(150%);
     }
+
     100% {
-        transform: rotate(360deg);
+        opacity: 0;
+        transform: translateY(-150%);
     }
-}
+} 
 
 @media (max-width: 830px) {
     .form {
@@ -227,11 +234,17 @@
     }
 
     #spinner {
-        height: 100px;
-        width: 100px;
-        margin: 50% auto;
-        background: url('../img/pngwing.png') center center/cover no-repeat;
-        animation: 1s linear 0s normal none infinite running rot;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        img {
+            scale: 0.5;
+            display: block;
+            height: 130%;
+            width: 130%;
+            margin: 0 -15%;
+            animation: 2s linear 0s normal infinite fadeInUp;
+        } 
     }
 }
 
