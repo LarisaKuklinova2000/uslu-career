@@ -35,11 +35,15 @@
         }
     }
 
-    .copyright {
+    .copyright,.developers {
         width: max-content;
-        margin: 80px auto 0 auto;
+        margin: 40px auto 0 auto;
         font-size: 18px;
         color: $main-color;
+        a {
+            text-decoration: none;
+            color: $main-color;
+        }
     }
     
 }
@@ -78,11 +82,10 @@
             }
         }
     
-        .copyright {
+        .copyright,.developers {
             width: max-content;
-            margin: 30px auto 0 auto;
+            margin: 20px auto 0 auto;
             font-size: 12px;
-            color: $main-color;
         }
         
     }
@@ -96,18 +99,21 @@
             }
         }
     
-        .copyright {
+        .copyright,.developers {
             text-align: center;
             width: 80%;
-            margin: 30px auto 0 auto;
-            font-size: 10px;
-            color: $main-color;
+            margin: 10px auto 0 auto;
+            font-size: 12px;
         }
         
     }
     .btn-up {
         width: 30px;
         height: 30px;
+    }
+
+    .developers {
+        margin-top: 1%;
     }
 }
 

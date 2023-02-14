@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <button type="submit" id="sendForm">Отправить</button>
                     <div class="noResume">
-                        Еще не составил резюме? <span style="font-weight: bold">Записывайся к нам на консультацию</span>
+                        Еще не составил резюме? 
+                        <a class="moreInfoBtn" href='https://vk.com/market-216548247_7541645' target="_blank"><span style="font-weight: bold">Записывайся к нам на консультацию</span></a>
                         <br>
                         и мы поможем тебе круто презентовать себя!
                     </div>

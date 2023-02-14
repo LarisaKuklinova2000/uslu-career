@@ -61,8 +61,9 @@
             position: absolute;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: #00a650;
+            height: 7px;
+            border-radius: 5px;
+            background-color: white;
             content: "";
             transition: width 0.3s ease-out;
         }
@@ -70,6 +71,12 @@
     a:hover:after,
     a:focus:after {
         width: 100%;
+    }
+    .logo {
+        svg {
+            width: 150px;
+            height: 60px;
+        }
     }
     .text-logo {
         font-size: 20px;
@@ -145,9 +152,8 @@
     .header {
         .text-logo {
             position: absolute;
-            font-size: 10px;
-            top: -78%;
-            left: 10%;
+            font-size: 12px;
+            top: -92%;
         }
     }
 }
