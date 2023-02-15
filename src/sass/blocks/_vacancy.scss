@@ -61,6 +61,11 @@
         gap: 80px;
         justify-content: center;
     }
+    .noCards {
+        width: 100%;
+        text-align: center;
+        color: $main-color;
+    }
 }
 
 @media (max-width: 1500px) {

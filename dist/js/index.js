@@ -1,5 +1,4 @@
 'use strict';
-
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href^="#"').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-
     const btnUp = {
         el: document.querySelector('.btn-up'),
         show() {
@@ -39,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     btnUp.addEventListener();
-
     const getResource = async (url) => {
         const result = await fetch(url);
         if (!result.ok) {
@@ -195,11 +192,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    getResource('https://api.npoint.io/31d227346a7626519407')
+    getResource('../vacancy.json')
         .then(res => {
             res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
             new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed).init()})
             vacancyArr = [...res.vacancy]
+        })
+        .then(() => {
+            document.querySelectorAll('.vacancy__cards').forEach(item => {
+                if (item.children.length === 0) {
+                    const noCards = document.createElement('div');
+                    noCards.classList.add('noCards');
+                    noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутсвуют</div>`
+                    item.append(noCards)
+                }
+            })
         });
 
 });
