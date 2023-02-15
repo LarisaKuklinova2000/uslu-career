@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <label for="resumeFile"><i class="fa-solid fa-arrow-up-from-bracket"></i></label>
                         <div class="addFile__text">Прикрепите файл с Вашим резюме <span style="font-weight: bold">в формате .PDF</span>
                             <div class="uploadFileName">выберите файл</div>
+                            <div class="invalidFileSize">Размер прикрепленного файла не должен быть больше 15mb</div>
+                            <div class="invalidFileType">Прикреплен файл не в формате PDF</div>
                         </div>
                         <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required accept="application/pdf"/>
                     </div>
@@ -114,8 +116,38 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.main-overlay').append(element);
             document.querySelector('.form').style.left = '50%'
 
-            document.querySelector('#resumeFile').addEventListener('change', () => {
-                document.querySelector('.uploadFileName').textContent = document.querySelector('#resumeFile').files[0].name
+            const resume = document.querySelector('#resumeFile'),
+                  uploadFileName = document.querySelector('.uploadFileName'),
+                  invalidFileSizeMessage = document.querySelector('.invalidFileSize'),
+                  invalidFileTypeMessage = document.querySelector('.invalidFileType');
+
+            function validateSize(input) {
+                const fileSize = input.files[0].size / 1024 / 1024,
+                    fileType = input.files[0].type.split('/')[1].toLowerCase();
+
+                if (fileSize > 15 && fileType !== 'pdf') {
+                    document.querySelector('#sendForm').disabled = true;
+                    invalidFileTypeMessage.style.display = 'block'
+                    invalidFileSizeMessage.style.display = 'block'
+                } else if (fileSize > 15 && fileType === 'pdf') {
+                    document.querySelector('#sendForm').disabled = true;
+                    invalidFileTypeMessage.style.display = 'none'
+                    invalidFileSizeMessage.style.display = 'block'
+                } else if (fileSize <= 15 && fileType !== 'pdf') {
+                    document.querySelector('#sendForm').disabled = true;
+                    invalidFileSizeMessage.style.display = 'none'
+                    invalidFileTypeMessage.style.display = 'block'
+                } else {
+                    document.querySelector('#sendForm').disabled = false;
+                    invalidFileSizeMessage.style.display = 'none'
+                    invalidFileTypeMessage.style.display = 'none'
+                }
+            }
+
+            resume.addEventListener('change', () => {
+                uploadFileName.textContent = resume.files[0].name
+                console.log(resume.files[0])
+                validateSize(resume)
             })
 
             function showLoaderIdentity() 
@@ -137,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 form.find(':input[name]').not('[type="file"]').each(function() { 
                     var field = $(this);
                     data.append(field.attr('name'), field.val());
-                });
+                })
 
                 var filesField = form.find('input[type="file"]');
                 var fileName = filesField.attr('name');
@@ -155,14 +187,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     processData:false
                 }).done(function() {
                     const overlay = document.querySelector('.main-overlay')
-                    alert('резюме успешно отправлено, с Вами свяжуться')
+                    alert('Резюме успешно отправлено, с Вами свяжуться')
                     overlay.classList.replace('visible', 'hidden')
                     document.body.style.overflow = '';
                     document.querySelector('.form').remove()
                     hideLoaderIdentity()
                 }).fail(function() {
                     hideLoaderIdentity()
-                    alert('отправка не удалась, попробуйте еще раз')
+                    alert('Отправка не удалась, попробуйте еще раз')
                 })
             })          
         }
