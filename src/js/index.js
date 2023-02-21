@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="card__salary">${this.salary}</div>
                 <div class="card__tags">${this.tags.join('<br>')}</div>
                 <div class="card__buttons">
-                    <a class="moreInfoBtn" href='${this.link}' target="_blank">Подробнее</a>
+                    <button class="moreInfoBtn">Подробнее</button>
                     <button class="feed" data-id=${this.id}>Связаться</button>
                 </div>
             `
@@ -214,6 +214,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.openModal(e.target.dataset.id)
                     overlay.classList.replace('hidden', 'visible')
                     document.body.style.overflow = 'hidden'
+                }
+
+                if (e.target.classList.contains('moreInfoBtn')) {
+                    window.open(this.link, '_blank').focus();
                 }
             });
         }

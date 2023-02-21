@@ -1,5 +1,10 @@
 @import 'staff/variables';
-
+html {
+    margin-right: calc(-1 * (100vw - 100%))
+}
+body {
+    overflow-x: hidden;
+}
 * {
     font-family: 'Gilroy';
     margin: 0;
