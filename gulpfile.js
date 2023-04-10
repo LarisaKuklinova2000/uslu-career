@@ -25,12 +25,6 @@ gulp.task("build-sass", () => {
               .pipe(browsersync.stream());
 });
 
-gulp.task('copy-img', function () {
-    return gulp.src('src/img/**/*')
-        .pipe(gulp.dest('dist/img'))
-        .pipe(browserSync.stream());
-});
-
 gulp.task("build-js", () => {
     return gulp.src("./src/js/main.js")
                 .pipe(webpack({
@@ -79,7 +73,6 @@ gulp.task("watch", () => {
   gulp.watch("./src/index.html", gulp.parallel("copy-html"));
   gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
   gulp.watch('src/sass/**/*.+(scss|sass|css)', gulp.parallel("build-sass"));
-  gulp.watch('src/img/**/*').on('all', gulp.parallel('img'));
 });
 
 gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js", "build-sass"));
