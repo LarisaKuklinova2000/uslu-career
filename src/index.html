@@ -14,7 +14,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link rel="stylesheet" href="css/general.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>USLU.Карьера</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
 </head>
@@ -86,24 +86,32 @@
                 <div class="vacancy__promo-text" id="vacancyList">
                     <h2>Юридические вакансии</h2>
                     <br><br>
-                    Центр карьеры и трудоустройства активно сотрудничает с работодателями разных юридических сфер для того, чтобы ты мог найти достойное применение знаниям и навыкам, полученным
-                    во время учебы в alma mater
-                    <br><br>
-                    В нашей HR-базе представлены вакансии по трем основным направлениям: in-house, консалтинг и государственная служба, чтобы каждый нашел работу своей мечты.
+                    В нашей HR-базе представлены вакансии по трем основным направлениям: 
+                    in-house, консалтинг и государственная служба, чтобы каждый нашел работу своей мечты.
                     <br><br>
                     Хочешь узнать, что больше подходит для тебя? Приходи
                     на нашу карьерную консультацию <a class="promoLinks" href="https://vk.com/uslugi-216548247?w=product-216548247_7541408%2Fquery">“Экспресс-диагностика”</a>,
                     а если хочешь научиться круто презентовать себя - мы ждем
                     тебя на консультации <a class="promoLinks" href="https://vk.com/uslu.career?w=product-216548247_7541645" target="_blank">“Создание резюме”</a>!
+                
+                    <div class="promo__buttons">
+                        <button class="to__consultation">Записаться на консультацию</button>
+                        <button class="to__resumeConstructor">Создать резюме</button>
+                    </div>
                 </div>
             </div>
 
             <div class="vacancy__items">
                 <div class="vacancy__wrapper vacancy__consulting">
                     <div class="vacancy__header vacancy__consulting-header">
-                        <div class="devider"></div>
-                        <h2 class="title-devider">Консалтинг</h2>
-                        <div class="devider"></div>
+                        <div class="title__wrapper">
+                            <h2 class="vacancy-title">Консалтинг</h2>
+                        </div>
+                        <div class="title__text">
+                            Адвокатские образования, юридические фирмы
+                            и частные практики
+                        </div>
+                        <div class="title_filler"></div>
                     </div>
                     <div 
                         class="vacancy__cards"
@@ -113,9 +121,14 @@
 
                 <div class="vacancy__wrapper vacancy__in-house">
                     <div class="vacancy__header vacancy__in-house-header">
-                        <div class="devider"></div>
-                        <h2 class="title-devider">In-house</h2>
-                        <div class="devider"></div>
+                        <div class="title__wrapper">
+                            <h2 class="vacancy-title">In-house</h2>
+                        </div>
+                        <div class="title__text">
+                            Адвокатские образования, юридические фирмы
+                            и частные практики
+                        </div>
+                        <div class="title_filler"></div>
                     </div>
                     <div 
                         class="vacancy__cards"
@@ -126,9 +139,14 @@
 
                 <div class="vacancy__wrapper vacancy__govServe">
                     <div class="vacancy__header vacancy__govServe-header">
-                        <div class="devider"></div>
-                        <h2 class="title-devider">Госслужба</h2>
-                        <div class="devider"></div>
+                        <div class="title__wrapper">
+                            <h2 class="vacancy-title">Госслужба</h2>
+                        </div>
+                        <div class="title__text">
+                            Адвокатские образования, юридические фирмы
+                            и частные практики
+                        </div>
+                        <div class="title_filler"></div>
                     </div>
                     <div 
                         class="vacancy__cards"
@@ -161,9 +179,14 @@
             <div class="vacancy__items">
                 <div class="vacancy__wrapper vacancy__apprentice1">
                     <div class="vacancy__header vacancy__apprentice1-header">
-                        <div class="devider"></div>
-                        <h2 class="title-devider">Для 2-3 курса</h2>
-                        <div class="devider"></div>
+                        <div class="title__wrapper">
+                            <h2 class="vacancy-title">Для 2-3 курса</h2>
+                        </div>
+                        <div class="title__text">
+                            Адвокатские образования, юридические фирмы
+                            и частные практики
+                        </div>
+                        <div class="title_filler"></div>
                     </div>
                     <div 
                         class="vacancy__cards"
@@ -173,9 +196,14 @@
 
                 <div class="vacancy__wrapper vacancy__apprentice2">
                     <div class="vacancy__header vacancy__apprentice2-header">
-                        <div class="devider"></div>
-                        <h2 class="title-devider">Для выпускников</h2>
-                        <div class="devider"></div>
+                        <div class="title__wrapper">
+                            <h2 class="vacancy-title">Для выпускников</h2>
+                        </div>
+                        <div class="title__text">
+                            Адвокатские образования, юридические фирмы
+                            и частные практики
+                        </div>
+                        <div class="title_filler"></div>
                     </div>
                     <div 
                         class="vacancy__cards"
@@ -186,6 +214,28 @@
 
             </div>
 
+        </div>
+    </section>
+
+    <section class="employers">
+        <div class="vacancy__promo">
+            <div class="vacancy__promo-img">
+                <img src="img/internPromo.png" alt="стажировка">
+            </div>
+            <div class="vacancy__promo-text" id="intern">
+                <h2>Стажировки для студентов</h2>
+                <br><br>
+                Юридический университет - главный спутник студентов
+                на пути профессионального становления. Однако практика
+                и теория в юридической работе настолько разнятся, что
+                стать квалифицированным специалистом без приобретения
+                навыков работы “на земле” крайне трудно. 
+                <br><br>
+                Именно поэтому Центр карьеры УрГЮУ им. В.Ф. Яковлева
+                активно развивает сотрудничество с работодателями
+                в сфере студенческих стажировок. Знакомство с практикой
+                позволит тебе начать нарабатывать опыт, необходимый для дальнейшего трудоустройства, а символическое вознаграждение за работу будет приятным бонусом!
+            </div>
         </div>
     </section>
 
@@ -215,6 +265,6 @@
     <section class="main-overlay overlay hidden animate__animated animate__fadeIn"></section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

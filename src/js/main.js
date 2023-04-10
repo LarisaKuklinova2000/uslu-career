@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    getResource('../vacancy.json')
+    getResource('./vacancy.json')
         .then(res => {
             res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
             new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed).init()})
