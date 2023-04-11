@@ -243,6 +243,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.append(noCards)
                 }
             })
+        })
+        .catch(() => {
+            document.querySelectorAll('.vacancy__cards').forEach(item => {
+                if (item.children.length === 0) {
+                    const noCards = document.createElement('div');
+                    noCards.classList.add('noCards');
+                    noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутсвуют</div>`
+                    item.append(noCards)
+                }
+            })
         });
 
 });

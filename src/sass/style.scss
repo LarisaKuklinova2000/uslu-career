@@ -4,6 +4,7 @@ html {
 }
 body {
     overflow-x: hidden;
+    background: url(../img/Vector.png) repeat;
 }
 * {
     font-family: 'Gilroy';
@@ -41,3 +42,4 @@ body {
 @import 'blocks/card';
 @import 'blocks/footer';
 @import 'blocks/form';
+@import 'blocks/employers';
