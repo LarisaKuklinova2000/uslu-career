@@ -1,0 +1,43 @@
+.employers-section {
+    .works__result {
+        margin-top: 130px;
+        .works__title {
+            font-size: 25px;
+            color: $main-color;
+            font-weight: 700;
+        }
+        .works__digits {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .result-digit {
+                text-align: center;
+                .statictic-num {
+                    font-size: 100px;
+                    font-weight: 700;
+                    color: $main-color;
+                }
+                p {
+                    font-size: 28px;
+                    color: $main-color;
+                }
+            }
+        }
+    }
+
+    .partners {
+        margin-top: 120px;
+        &__title {
+            font-size: 25px;
+            color: $main-color;
+            font-weight: 700;
+        }
+        &__wrapper {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
