@@ -521,6 +521,7 @@ body {
   }
 }
 .footer {
+  margin-top: 130px;
   min-height: 250px;
   width: 100%;
   padding-top: 70px;
@@ -972,4 +973,84 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.employers-section .partnership {
+  margin-top: 120px;
+}
+.employers-section .partnership__title {
+  font-size: 25px;
+  color: #003CA5;
+  font-weight: 700;
+}
+.employers-section .partnership__table {
+  margin-top: 75px;
+}
+.employers-section .partnership__table table {
+  width: 100%;
+}
+.employers-section .partnership__table table th {
+  padding: 20px;
+  font-size: 25px;
+  color: #003CA5;
+  font-weight: normal;
+}
+.employers-section .partnership__table table td {
+  text-align: center;
+  padding: 20px;
+}
+.employers-section .partnership__table table .partnerType {
+  text-align: left;
+  padding-left: 0px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #003CA5;
+}
+.employers-section .partnership__table table .thPartnerType {
+  text-align: left;
+  padding-left: 0px;
+}
+.employers-section .partnership__table table .parnershipPrice {
+  font-weight: 700;
+  font-size: 21px;
+  color: #003CA5;
+}
+.employers-section .partnership__table table .notIncluded {
+  margin: 0 auto;
+  width: 30%;
+  border: 1.76747px solid #003CA5;
+  height: 0px;
+}
+.employers-section .partnership__feed {
+  margin-top: 75px;
+  display: flex;
+  justify-content: space-between;
+}
+.employers-section .partnership__feed .connectWithUs {
+  display: block;
+  width: 299px;
+  height: 66px;
+  border-radius: 100px;
+  background-color: #003CA5;
+  font-weight: 700;
+  font-size: 25px;
+  color: #FFFFFF;
+  border: none;
+}
+.employers-section .partnership__feed .detailedConditions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.employers-section .partnership__feed .detailedConditions * {
+  display: block;
+}
+.employers-section .partnership__feed .detailedConditions i {
+  font-size: 26px;
+  color: #003CA5;
+  transform: rotate(90deg);
+}
+.employers-section .partnership__feed .detailedConditions p {
+  font-size: 20px;
+  color: #003CA5;
+  margin-left: 25px;
 }

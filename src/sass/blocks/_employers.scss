@@ -40,4 +40,86 @@
             justify-content: space-between;
         }
     }
+
+    .partnership {
+        margin-top: 120px;
+        &__title {
+            font-size: 25px;
+            color: $main-color;
+            font-weight: 700;
+        }
+        &__table {
+            margin-top: 75px;
+            table {
+                width: 100%;
+                th {
+                    padding: 20px;
+                    font-size: 25px;
+                    color: $main-color;
+                    font-weight: normal;
+                }
+                td {
+                    text-align: center;
+                    padding: 20px;
+                }
+                .partnerType {
+                    text-align: left;
+                    padding-left: 0px;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: $main-color;
+                }
+                .thPartnerType {
+                    text-align: left;
+                    padding-left: 0px;
+                }
+                .parnershipPrice {
+                    font-weight: 700;
+                    font-size: 21px;
+                    color: $main-color;
+                }
+                .notIncluded {
+                    margin: 0 auto;
+                    width: 30%;
+                    border: 1.76747px solid #003CA5;
+                    height: 0px;
+                }
+            }
+        }
+        &__feed {
+            margin-top: 75px;
+            display: flex;
+            justify-content: space-between;
+            .connectWithUs {
+                display: block;
+                width: 299px;
+                height: 66px;
+                border-radius: 100px;
+                background-color: $main-color;
+                font-weight: 700;
+                font-size: 25px;
+                color: #FFFFFF;
+                border: none;
+
+            }
+            .detailedConditions {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                * {
+                    display: block;
+                }
+                i {
+                    font-size: 26px;
+                    color: $main-color;
+                    transform: rotate(90deg);
+                }
+                p {
+                    font-size: 20px;
+                    color: $main-color;
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
 }
