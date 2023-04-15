@@ -235,7 +235,7 @@ body {
   color: #FFFFFF;
   border: none;
 }
-.vacancy__promo-text .promo__buttons .to__resumeConstructorr {
+.vacancy__promo-text .promo__buttons .to__resumeConstructor {
   width: 282px;
   margin-left: 70px;
 }
@@ -934,6 +934,14 @@ body {
     color: #003CA5;
   }
 }
+.employers-section .employers .promo__buttons .partnersLevel {
+  width: 300px;
+  cursor: pointer;
+}
+.employers-section .employers .promo__buttons .jobOffer {
+  width: 350px;
+  cursor: pointer;
+}
 .employers-section .works__result {
   margin-top: 130px;
 }
@@ -1053,4 +1061,244 @@ body {
   font-size: 20px;
   color: #003CA5;
   margin-left: 25px;
+}
+
+.employersForm {
+  background-color: white;
+  width: 750px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  border-radius: 50px;
+}
+.employersForm #employersForm__close {
+  cursor: pointer;
+  position: absolute;
+  font-size: 32px;
+  top: 25px;
+  right: 25px;
+  color: #003CA5;
+}
+.employersForm__header {
+  width: 80%;
+  text-align: left;
+  font-weight: 700;
+  font-size: 25px;
+  color: #003CA5;
+  margin-bottom: 30px;
+}
+.employersForm__wrapper {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.employersForm__wrapper .employersTextInput {
+  height: 50px;
+  border: 2px solid #003CA5;
+  border-radius: 55px;
+  padding: 12px 20px;
+  outline: none;
+}
+.employersForm__wrapper .employersTextInput::placeholder {
+  color: #003CA5;
+}
+.employersForm__wrapper .employersTextInput:focus {
+  border: 3px solid #003CA5;
+}
+.employersForm__wrapper .employersRawElem {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.employersForm__wrapper .responsibilities {
+  resize: none;
+  width: 100%;
+  height: 120px;
+  border-radius: 20px;
+}
+.employersForm__wrapper span {
+  color: #003CA5;
+  font-size: 15px;
+}
+.employersForm__wrapper .salary__inputs .salaryLabel {
+  margin-right: 18px;
+  margin-left: 20px;
+}
+.employersForm__wrapper .watchStudents,
+.employersForm__wrapper .workExp,
+.employersForm__wrapper .formOfEmployment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.employersForm__wrapper .watchStudents span,
+.employersForm__wrapper .workExp span,
+.employersForm__wrapper .formOfEmployment span {
+  margin-left: 20px;
+}
+.employersForm__wrapper .watchStudents label,
+.employersForm__wrapper .workExp label,
+.employersForm__wrapper .formOfEmployment label {
+  font-weight: 700;
+  color: #003CA5;
+}
+.employersForm__wrapper .watchStudents input[type=radio],
+.employersForm__wrapper .workExp input[type=radio],
+.employersForm__wrapper .formOfEmployment input[type=radio] {
+  width: 20px;
+  height: 20px;
+}
+.employersForm__wrapper .watchStudents .radioBlock,
+.employersForm__wrapper .workExp .radioBlock,
+.employersForm__wrapper .formOfEmployment .radioBlock {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  position: relative;
+}
+.employersForm__wrapper .watchStudents .radioBlock *,
+.employersForm__wrapper .workExp .radioBlock *,
+.employersForm__wrapper .formOfEmployment .radioBlock * {
+  display: block;
+}
+.employersForm__wrapper .watchStudents .radioBlock label,
+.employersForm__wrapper .workExp .radioBlock label,
+.employersForm__wrapper .formOfEmployment .radioBlock label {
+  margin-left: 10px;
+}
+.employersForm__wrapper .watchStudents [type=radio]:checked,
+.employersForm__wrapper .workExp [type=radio]:checked,
+.employersForm__wrapper .formOfEmployment [type=radio]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.employersForm__wrapper .watchStudents [type=radio]:checked + label,
+.employersForm__wrapper .workExp [type=radio]:checked + label,
+.employersForm__wrapper .formOfEmployment [type=radio]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #003CA5;
+}
+.employersForm__wrapper .watchStudents [type=radio]:checked + label:before,
+.employersForm__wrapper .workExp [type=radio]:checked + label:before,
+.employersForm__wrapper .formOfEmployment [type=radio]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #003CA5;
+  border-radius: 100%;
+  background: #fff;
+}
+.employersForm__wrapper .watchStudents [type=radio]:checked + label:after,
+.employersForm__wrapper .workExp [type=radio]:checked + label:after,
+.employersForm__wrapper .formOfEmployment [type=radio]:checked + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #003CA5;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.employersForm__wrapper .watchStudents [type=radio]:not(:checked),
+.employersForm__wrapper .workExp [type=radio]:not(:checked),
+.employersForm__wrapper .formOfEmployment [type=radio]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.employersForm__wrapper .watchStudents [type=radio]:not(:checked) + label,
+.employersForm__wrapper .workExp [type=radio]:not(:checked) + label,
+.employersForm__wrapper .formOfEmployment [type=radio]:not(:checked) + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #003CA5;
+}
+.employersForm__wrapper .watchStudents [type=radio]:not(:checked) + label:before,
+.employersForm__wrapper .workExp [type=radio]:not(:checked) + label:before,
+.employersForm__wrapper .formOfEmployment [type=radio]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #003CA5;
+  border-radius: 100%;
+  background: #fff;
+}
+.employersForm__wrapper .watchStudents [type=radio]:not(:checked) + label:after,
+.employersForm__wrapper .workExp [type=radio]:not(:checked) + label:after,
+.employersForm__wrapper .formOfEmployment [type=radio]:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #003CA5;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.employersForm__wrapper .watchStudents span,
+.employersForm__wrapper .workExp span {
+  width: 210px;
+}
+.employersForm__wrapper .connectInfo__inputs {
+  display: flex;
+  justify-content: space-between;
+}
+.employersForm__wrapper .connectInfo__inputs .employersTextInput {
+  width: 45%;
+}
+.employersForm__wrapper .employersForm__footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.employersForm__wrapper .employersForm__footer #sendEmployersForm {
+  width: 135px;
+  height: 35px;
+  background: #003CA5;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.employersForm__wrapper .employersForm__footer #sendEmployersForm:disabled {
+  background: gray;
+}
+.employersForm__wrapper .employersForm__footer .haveQuestions {
+  color: #003CA5;
+}
+.employersForm__wrapper .employersForm__footer .haveQuestions a {
+  text-decoration: none;
+  color: #003CA5;
+  font-weight: 700;
 }

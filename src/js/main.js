@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
           }
         }
-      }
+    }
     btnUp.addEventListener();
     const getResource = async (url) => {
         const result = await fetch(url);
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <button class="feed" data-id=${this.id}>Связаться</button>
                 </div>
             `
-            document.querySelector(`#${this.category}Cards`).append(element)
+            document.querySelector(`#${this.category}Cards`).append(element);
         }
 
         openModal(id) {
-            let vacancyInfo = vacancyArr.filter(item => item.id == id)[0]
+            let vacancyInfo = vacancyArr.filter(item => item.id == id)[0];
             const element = document.createElement('div');
             element.classList.add('form', 'animate__animated', 'animate__fadeIn');
             element.innerHTML = `
@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <div id="loader-identity" class='animate__animated animate__fadeIn'><div id="spinner"><img src="img/loading.png" alt="загрузка..."></div></div>
                 </form>
-            `
+            `;
             document.querySelector('.main-overlay').append(element);
-            document.querySelector('.form').style.left = '50%'
+            document.querySelector('.form').style.left = '50%';
 
             const resume = document.querySelector('#resumeFile'),
                   uploadFileName = document.querySelector('.uploadFileName'),
@@ -145,14 +145,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             resume.addEventListener('change', () => {
-                uploadFileName.textContent = resume.files[0].name
-                console.log(resume.files[0])
-                validateSize(resume)
-            })
+                uploadFileName.textContent = resume.files[0].name;
+                console.log(resume.files[0]);
+                validateSize(resume);
+            });
 
             function showLoaderIdentity() 
             {
-                $("#loader-identity").show() 
+                $("#loader-identity").show() ;
             }
             
             function hideLoaderIdentity() 
@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             $('.form__items').on('submit', function(e){
-                showLoaderIdentity()
-                e.preventDefault()
+                showLoaderIdentity();
+                e.preventDefault();
                 var form = $(this);
                 var data = new FormData();
 
@@ -186,17 +186,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     cache: false, 
                     processData:false
                 }).done(function() {
-                    const overlay = document.querySelector('.main-overlay')
-                    alert('Резюме успешно отправлено, с Вами свяжуться')
-                    overlay.classList.replace('visible', 'hidden')
+                    const overlay = document.querySelector('.main-overlay');
+                    alert('Резюме успешно отправлено, с Вами свяжуться');
+                    overlay.classList.replace('visible', 'hidden');
                     document.body.style.overflow = '';
-                    document.querySelector('.form').remove()
-                    hideLoaderIdentity()
+                    document.querySelector('.form').remove();
+                    hideLoaderIdentity();
                 }).fail(function() {
-                    hideLoaderIdentity()
-                    alert('Отправка не удалась, попробуйте еще раз')
-                })
-            })          
+                    hideLoaderIdentity();
+                    alert('Отправка не удалась, попробуйте еще раз');
+                });
+            });      
         }
 
         setListeners() {
@@ -204,16 +204,16 @@ document.addEventListener('DOMContentLoaded', function () {
                   overlay = document.querySelector('.main-overlay');
             overlay.addEventListener('click', (e) => {
                 if (e.target.id === 'modal__close') {
-                    overlay.classList.replace('visible', 'hidden')
+                    overlay.classList.replace('visible', 'hidden');
                     document.body.style.overflow = '';
-                    e.target.parentNode.remove()
+                    e.target.parentNode.remove();
                 }
             });
             card.addEventListener('click', (e) => {
                 if (e.target.classList.contains('feed')) {
-                    this.openModal(e.target.dataset.id)
-                    overlay.classList.replace('hidden', 'visible')
-                    document.body.style.overflow = 'hidden'
+                    this.openModal(e.target.dataset.id);
+                    overlay.classList.replace('hidden', 'visible');
+                    document.body.style.overflow = 'hidden';
                 }
 
                 if (e.target.classList.contains('moreInfoBtn')) {
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутсвуют</div>`
                     item.append(noCards)
                 }
-            })
+            });
         })
         .catch(() => {
             document.querySelectorAll('.vacancy__cards').forEach(item => {
@@ -261,14 +261,35 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.partnership__table').querySelectorAll('td').forEach(item => {
         if (item.classList.contains('included')) {
             item.innerHTML = `
-            <svg width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.4893 25.0045C12.8283 24.9112 12.3038 24.6483 11.8395 24.177C10.7106 23.0319 9.5623 21.8693 8.45169 20.7451C6.08248 18.3468 3.63271 15.8668 1.23727 13.4183C0.391871 12.5539 0.186341 11.7058 0.550033 10.5808C0.73228 10.0184 0.993474 9.59919 1.34405 9.30022C1.69463 9.00124 2.17099 8.80509 2.7576 8.71339C2.91554 8.68814 3.07515 8.67517 3.23503 8.6746C3.91853 8.6746 4.49283 8.93233 5.04386 9.48524C6.49166 10.9391 7.95847 12.4286 9.37684 13.8692C9.99914 14.5012 10.6216 15.1329 11.2443 15.7645C11.5376 16.061 12.4263 16.9623 13.7909 16.9623C15.1555 16.9623 16.0239 16.0846 16.3499 15.7542L19.5246 12.5363C23.252 8.75788 27.1065 4.85115 30.8959 1.00599C31.6295 0.261814 32.1775 0.116125 32.5733 0.0727168L32.7007 0.0586092L32.8265 0.031479C32.9285 0.010212 33.0323 -0.000334104 33.1364 8.06524e-06C33.4013 8.06524e-06 33.6984 0.0721742 34.0155 0.214336C35.0127 0.659813 35.5163 1.30768 35.6991 2.38041C35.7077 2.42978 35.7171 2.4778 35.7275 2.52447V3.1452C35.6804 3.31477 35.6539 3.45666 35.6359 3.55514C35.4917 4.02286 35.2918 4.38207 35.026 4.65201L34.1726 5.518C28.1065 11.6746 21.8339 18.0415 15.6527 24.288C15.1517 24.7945 14.5582 25.0276 13.7355 25.0392L13.4893 25.0045Z" fill="#003CA5"/>
-            </svg>
-            `
+                <svg width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4893 25.0045C12.8283 24.9112 12.3038 24.6483 11.8395 24.177C10.7106 23.0319 9.5623 21.8693 8.45169 20.7451C6.08248 18.3468 3.63271 15.8668 1.23727 13.4183C0.391871 12.5539 0.186341 11.7058 0.550033 10.5808C0.73228 10.0184 0.993474 9.59919 1.34405 9.30022C1.69463 9.00124 2.17099 8.80509 2.7576 8.71339C2.91554 8.68814 3.07515 8.67517 3.23503 8.6746C3.91853 8.6746 4.49283 8.93233 5.04386 9.48524C6.49166 10.9391 7.95847 12.4286 9.37684 13.8692C9.99914 14.5012 10.6216 15.1329 11.2443 15.7645C11.5376 16.061 12.4263 16.9623 13.7909 16.9623C15.1555 16.9623 16.0239 16.0846 16.3499 15.7542L19.5246 12.5363C23.252 8.75788 27.1065 4.85115 30.8959 1.00599C31.6295 0.261814 32.1775 0.116125 32.5733 0.0727168L32.7007 0.0586092L32.8265 0.031479C32.9285 0.010212 33.0323 -0.000334104 33.1364 8.06524e-06C33.4013 8.06524e-06 33.6984 0.0721742 34.0155 0.214336C35.0127 0.659813 35.5163 1.30768 35.6991 2.38041C35.7077 2.42978 35.7171 2.4778 35.7275 2.52447V3.1452C35.6804 3.31477 35.6539 3.45666 35.6359 3.55514C35.4917 4.02286 35.2918 4.38207 35.026 4.65201L34.1726 5.518C28.1065 11.6746 21.8339 18.0415 15.6527 24.288C15.1517 24.7945 14.5582 25.0276 13.7355 25.0392L13.4893 25.0045Z" fill="#003CA5"/>
+                </svg>
+            `;
         } else if(!item.classList.contains('parnershipPrice') && !item.classList.contains('partnerType')) {
             item.innerHTML = `
                 <div class="notIncluded"></div>
-            `
+            `;
         }
-    })
+    });
+
+    // employers form
+
+    const jobOfferBtn = document.querySelector('.jobOffer'),
+          overlay = document.querySelector('.main-overlay'),
+          employersForm = document.querySelector('.employersForm');
+
+    jobOfferBtn.addEventListener('click', () => {
+        overlay.classList.replace('hidden', 'visible');
+        employersForm.classList.replace('hidden', 'visible');
+        document.body.style.overflow = 'hidden';
+    });
+
+    employersForm.addEventListener('click', (e) => {
+        if (e.target.id == 'employersForm__close') {
+            overlay.classList.replace('visible', 'hidden');
+            employersForm.classList.replace('visible', 'hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
 });

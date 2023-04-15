@@ -1,4 +1,16 @@
 .employers-section {
+    .employers {
+        .promo__buttons {
+            .partnersLevel {
+                width: 300px;
+                cursor: pointer;
+            }
+            .jobOffer {
+                width: 350px;
+                cursor: pointer;
+            }
+        }
+    }
     .works__result {
         margin-top: 130px;
         .works__title {
