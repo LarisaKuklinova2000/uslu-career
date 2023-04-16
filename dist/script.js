@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var fileName = filesField.attr('name');
         var file = filesField.prop('files')[0];
         data.append(fileName, file);
+        console.log(data);
         var url = 'send.php';
         $.ajax({
           url: url,
@@ -281,6 +282,44 @@ document.addEventListener('DOMContentLoaded', function () {
       employersForm.classList.replace('visible', 'hidden');
       document.body.style.overflow = '';
     }
+  });
+  function showLoaderIdentity() {
+    $("#loader-identity").show();
+  }
+  function hideLoaderIdentity() {
+    $("#loader-identity").hide();
+  }
+  $('#employersForm').on('submit', function (e) {
+    showLoaderIdentity();
+    e.preventDefault();
+    var form = $(this);
+    var data = new FormData();
+    form.find(':input[name]').each(function () {
+      var field = $(this);
+      data.append(field.attr('name'), field.val());
+    });
+    console.log(data);
+
+    // var url = 'send.php';
+
+    // $.ajax({
+    //     url: url,
+    //     type: 'POST',
+    //     data: data,
+    //     contentType: false,
+    //     cache: false, 
+    //     processData:false
+    // }).done(function() {
+    //     const overlay = document.querySelector('.main-overlay');
+    //     alert('Резюме успешно отправлено, с Вами свяжуться');
+    //     overlay.classList.replace('visible', 'hidden');
+    //     document.body.style.overflow = '';
+    //     document.querySelector('.form').remove();
+    //     hideLoaderIdentity();
+    // }).fail(function() {
+    //     hideLoaderIdentity();
+    //     alert('Отправка не удалась, попробуйте еще раз');
+    // });
   });
 });
 /******/ })()

@@ -176,6 +176,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 var file = filesField.prop('files')[0];
                 data.append(fileName, file) ;
 
+                console.log(data)
+
                 var url = 'send.php';
 
                 $.ajax({
@@ -252,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутсвуют</div>`
                     item.append(noCards)
                 }
-            })
+            });
         });
 
 
@@ -280,16 +282,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
     jobOfferBtn.addEventListener('click', () => {
         overlay.classList.replace('hidden', 'visible');
-        employersForm.classList.replace('hidden', 'visible');
+        employersForm.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     });
 
     employersForm.addEventListener('click', (e) => {
         if (e.target.id == 'employersForm__close') {
             overlay.classList.replace('visible', 'hidden');
-            employersForm.classList.replace('visible', 'hidden');
+            employersForm.style.display = 'none';
             document.body.style.overflow = '';
         }
+    });
+
+    function showLoaderIdentity() 
+    {
+        $("#loader-identityEmployrsForm").show() ;
+    }
+    
+    function hideLoaderIdentity() 
+    {
+    $("#loader-identityEmployrsForm").hide();  
+    }
+
+    $('#employersForm').on('submit', function(e){
+        showLoaderIdentity();
+        e.preventDefault();
+        var form = $(this);
+        var data = new FormData();
+
+        form.find(':input[name]').each(function() { 
+            var field = $(this);
+            data.append(field.attr('name'), field.val());
+        });
+
+        console.log(data);
+
+        var url = 'sendVacancyOffer.php';
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            contentType: false,
+            cache: false, 
+            processData:false
+        }).done(function() {
+            const overlay = document.querySelector('.main-overlay');
+            alert('Резюме успешно отправлено, с Вами свяжуться');
+            overlay.classList.replace('visible', 'hidden');
+            document.body.style.overflow = '';
+            employersForm.style.display = 'none';
+            hideLoaderIdentity();
+        }).fail(function() {
+            hideLoaderIdentity();
+            alert('Отправка не удалась, попробуйте еще раз');
+        });
     });
 
 });

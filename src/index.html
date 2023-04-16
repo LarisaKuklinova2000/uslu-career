@@ -364,7 +364,7 @@
         <div class="employersForm hidden animate__animated animate__fadeIn">
             <i class="fa-solid fa-square-xmark" id="employersForm__close"></i>
             <div class="employersForm__header"> Предложить вакансию/стажировку </div>
-            <form class="employersForm__wrapper">
+            <form class="employersForm__wrapper" enctype="multipart/form-data" method="post" id="employersForm">
                 <input class="vacancyName employersTextInput employersRawElem" name="vacancyName" type="text" placeholder="Название вакансии" required>
                 <input class="organizationName employersTextInput employersRawElem" name="organizationName" type="text" placeholder="Название организации" required>
                 <input class="organizationAdress employersTextInput employersRawElem" name="organizationAdress" type="text" placeholder="Адрес организации" required>
@@ -455,6 +455,7 @@
                         Возникли вопросы по заполнению? <a href="#">Напишите нам!</a>
                     </div>
                 </div>
+                <div id="loader-identityEmployrsForm" class='animate__animated animate__fadeIn'><div id="employrsFormSpinner"><img src="img/loading.png" alt="загрузка..."></div></div>
             </form>
         </div>
     </section>
