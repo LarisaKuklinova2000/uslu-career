@@ -1,42 +1,10 @@
-'use strict';
+import smoothScroll from "./modules/smothScroll";
+
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href^="#"').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            let href = this.getAttribute('href').substring(1);
-            const scrollTarget = document.getElementById(href);
-            const topOffset = document.querySelector('.scrollto').offsetHeight;
-            const elementPosition = scrollTarget.getBoundingClientRect().top;
-            const offsetPosition = elementPosition - topOffset;
-            window.scrollBy({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        });
-    });
-    const btnUp = {
-        el: document.querySelector('.btn-up'),
-        show() {
-          this.el.classList.remove('btn-up_hide');
-        },
-        hide() {
-          this.el.classList.add('btn-up_hide');
-        },
-        addEventListener() {
-          window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-            scrollY > 400 ? this.show() : this.hide();
-          });
-          document.querySelector('.btn-up').onclick = () => {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth'
-            });
-          }
-        }
-    }
-    btnUp.addEventListener();
+    'use strict';
+
+    smoothScroll();
+
     const getResource = async (url) => {
         const result = await fetch(url);
         if (!result.ok) {
@@ -294,49 +262,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function showLoaderIdentity() 
-    {
+
+    const postData = async (url, data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        });
+    
+        return await res.json();
+    };
+
+    function showLoaderIdentity() {
         $("#loader-identityEmployrsForm").show() ;
     }
     
-    function hideLoaderIdentity() 
-    {
-    $("#loader-identityEmployrsForm").hide();  
+    function hideLoaderIdentity() {
+        $("#loader-identityEmployrsForm").hide();  
     }
 
-    $('#employersForm').on('submit', function(e){
-        showLoaderIdentity();
-        e.preventDefault();
-        var form = $(this);
-        var data = new FormData();
+    function bindPostData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        form.find(':input[name]').each(function() { 
-            var field = $(this);
-            data.append(field.attr('name'), field.val());
+            showLoaderIdentity();
+
+            const formData = new FormData(form);
+
+            const json = JSON.stringify(Object.fromEntries(formData.entries())); 
+
+
+            
+            postData('sendVacancyOffer.php', json)
+            .then(data => {
+                alert('Предложение вакансии успешно отправлено, с Вами свяжуться!');
+            }).catch(() => {
+                alert('При отправке произогла ошибка, попробуйте снова');
+            }).finally(() => {
+                form.reset();
+                hideLoaderIdentity();
+            });
+
         });
-
-        console.log(data);
-
-        var url = 'sendVacancyOffer.php';
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            contentType: false,
-            cache: false, 
-            processData:false
-        }).done(function() {
-            const overlay = document.querySelector('.main-overlay');
-            alert('Резюме успешно отправлено, с Вами свяжуться');
-            overlay.classList.replace('visible', 'hidden');
-            document.body.style.overflow = '';
-            employersForm.style.display = 'none';
-            hideLoaderIdentity();
-        }).fail(function() {
-            hideLoaderIdentity();
-            alert('Отправка не удалась, попробуйте еще раз');
-        });
-    });
+    }
+    bindPostData(document.querySelector('#employersForm'));
 
 });

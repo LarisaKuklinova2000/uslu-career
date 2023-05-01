@@ -8,10 +8,7 @@ const autoprefixer = require("autoprefixer");
 const cleanCSS = require("gulp-clean-css");
 const postcss = require("gulp-postcss");
 
-// const dist = "./dist/";
-// const dist = 'C:/openserver/domains/uslu-carr';
-const dist = 'C:/openserver/domains/uslu-carrierV2';
-// const dist = 'C:/OSPanel/domains/uslu-carr';
+const dist = "./dist/";
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/*.html")

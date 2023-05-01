@@ -1,12 +1,15 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
-/*!************************!*\
-  !*** ./src/js/main.js ***!
-  \************************/
+/******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/smothScroll.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/smothScroll.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-document.addEventListener('DOMContentLoaded', function () {
+__webpack_require__.r(__webpack_exports__);
+const smoothScroll = () => {
   document.querySelectorAll('a[href^="#"').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -44,6 +47,63 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
   btnUp.addEventListener();
+};
+/* harmony default export */ __webpack_exports__["default"] = (smoothScroll);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+!function() {
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_smothScroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/smothScroll */ "./src/js/modules/smothScroll.js");
+
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  (0,_modules_smothScroll__WEBPACK_IMPORTED_MODULE_0__["default"])();
   const getResource = async url => {
     const result = await fetch(url);
     if (!result.ok) {
@@ -273,55 +333,51 @@ document.addEventListener('DOMContentLoaded', function () {
     employersForm = document.querySelector('.employersForm');
   jobOfferBtn.addEventListener('click', () => {
     overlay.classList.replace('hidden', 'visible');
-    employersForm.classList.replace('hidden', 'visible');
+    employersForm.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
   employersForm.addEventListener('click', e => {
     if (e.target.id == 'employersForm__close') {
       overlay.classList.replace('visible', 'hidden');
-      employersForm.classList.replace('visible', 'hidden');
+      employersForm.style.display = 'none';
       document.body.style.overflow = '';
     }
   });
+  const postData = async (url, data) => {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: data
+    });
+    return await res.json();
+  };
   function showLoaderIdentity() {
-    $("#loader-identity").show();
+    $("#loader-identityEmployrsForm").show();
   }
   function hideLoaderIdentity() {
-    $("#loader-identity").hide();
+    $("#loader-identityEmployrsForm").hide();
   }
-  $('#employersForm').on('submit', function (e) {
-    showLoaderIdentity();
-    e.preventDefault();
-    var form = $(this);
-    var data = new FormData();
-    form.find(':input[name]').each(function () {
-      var field = $(this);
-      data.append(field.attr('name'), field.val());
+  function bindPostData(form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      showLoaderIdentity();
+      const formData = new FormData(form);
+      const json = JSON.stringify(Object.fromEntries(formData.entries()));
+      postData('sendVacancyOffer.php', json).then(data => {
+        alert('Предложение вакансии успешно отправлено, с Вами свяжуться!');
+      }).catch(() => {
+        alert('При отправке произогла ошибка, попробуйте снова');
+      }).finally(() => {
+        form.reset();
+        hideLoaderIdentity();
+      });
     });
-    console.log(data);
-
-    // var url = 'send.php';
-
-    // $.ajax({
-    //     url: url,
-    //     type: 'POST',
-    //     data: data,
-    //     contentType: false,
-    //     cache: false, 
-    //     processData:false
-    // }).done(function() {
-    //     const overlay = document.querySelector('.main-overlay');
-    //     alert('Резюме успешно отправлено, с Вами свяжуться');
-    //     overlay.classList.replace('visible', 'hidden');
-    //     document.body.style.overflow = '';
-    //     document.querySelector('.form').remove();
-    //     hideLoaderIdentity();
-    // }).fail(function() {
-    //     hideLoaderIdentity();
-    //     alert('Отправка не удалась, попробуйте еще раз');
-    // });
-  });
+  }
+  bindPostData(document.querySelector('#employersForm'));
 });
+}();
 /******/ })()
 ;
 //# sourceMappingURL=script.js.map

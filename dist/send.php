@@ -4,38 +4,19 @@ require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
-$_POST = json_decode( file_get_contents("php://input"), true );
-
 // Переменные, которые отправляет пользователь
-$name = $_POST['vacancyName'];
-$empName = $_POST['organizationName'];
-$empAdress = $_POST['organizationAdress'];
-$salaryMin = $_POST['salaryMin'];
-$salaryMax = $_POST['salaryMax'];
-$responsibilities = $_POST['responsibilities'];
-$students = $_POST['students'];
-$workExp = $_POST['workExp'];
-$formOfEmployment = $_POST['formOfEmployment'];
-$contactPerson = $_POST['contactPerson'];
-$email = $_POST['employersEmail'];
-$employersPhone = $_POST['employersPhone'];
+$name = $_POST['surnameName'];
+$email = $_POST['jobTitle'];
+$text = $_POST['employer'];
 $file = $_FILES['resumeFile'];
 
 // Формирование самого письма
-$title = "Предлагаемая вакансия";
+$title = "Заголовок письма";
 $body = "
-<h2>Предлагаемая вакансия</h2>
-<b>Название вакансии:</b> $name<br>
-<b>Название организации:</b> $empName<br>
-<b>Адрес организации:</b> $empAdress<br>
-<b>Зарплата:</b> от $salaryMin до $salaryMax<br>
-<b>Основные обязанности:</b> $responsibilities<br>
-<b>Рассматривают студентов?</b> $students<br>
-<b>Нужен ли опыт работы?:</b> $workExp<br>
-<b>Форма трудоустрйоства:</b> $formOfEmployment<br>
-<b>Контактное лицо:</b> $contactPerson<br>
+<h2>Новое письмо</h2>
+<b>Имя:</b> $name<br>
 <b>Почта:</b> $email<br><br>
-<b>Телефон для связи:</b> $employersPhone<br>
+<b>Сообщение:</b><br>$text
 ";
 
 // Настройки PHPMailer
@@ -44,7 +25,7 @@ try {
     $mail->isSMTP();   
     $mail->CharSet = "UTF-8";
     $mail->SMTPAuth   = true;
-    $mail->SMTPDebug = 2;
+    //$mail->SMTPDebug = 2;
     $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
     $mail->Host       = 'smtp.rambler.ru'; // SMTP сервера вашей почты
@@ -55,7 +36,7 @@ try {
     $mail->setFrom('uslu_career_web@rambler.ru', 'Career'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('gnosticism100500@gmail.com');
+    $mail->addAddress('gnosticism2@rambler.ru');
 
     // Прикрипление файлов к письму
 if (!empty($file['name'][0])) {
