@@ -1,6 +1,13 @@
 .employers-section {
+    .table__container {
+        width: 90%;
+        margin: 0 auto;
+    }
     .employers {
         .promo__buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             .partnersLevel {
                 width: 300px;
                 cursor: pointer;
@@ -26,7 +33,7 @@
             .result-digit {
                 text-align: center;
                 .statictic-num {
-                    font-size: 100px;
+                    font-size: 80px;
                     font-weight: 700;
                     color: $main-color;
                 }
@@ -50,6 +57,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            .partners-item {
+                width: auto;
+            }
         }
     }
 
@@ -65,14 +75,14 @@
             table {
                 width: 100%;
                 th {
-                    padding: 20px;
+                    padding: 1%;
                     font-size: 25px;
                     color: $main-color;
                     font-weight: normal;
                 }
                 td {
                     text-align: center;
-                    padding: 20px;
+                    padding: 1%;
                 }
                 .partnerType {
                     text-align: left;
@@ -130,6 +140,206 @@
                     font-size: 20px;
                     color: $main-color;
                     margin-left: 25px;
+                }
+            }
+        }
+    }
+}
+
+// media rules
+
+@media (max-width: 1650px) {
+    .employers-section {
+        .employers {
+            .promo__buttons {
+                .partnersLevel {
+                    width: 250px;
+                    font-size: 20px;
+                }
+                .jobOffer {
+                    width: 300px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .employers-section {
+        .employers {
+            .promo__buttons {
+                .partnersLevel {
+                    width: 200px;
+                    font-size: 18px;
+                }
+                .jobOffer {
+                    width: 250px;
+                    font-size: 18px;
+                }
+            }
+        }
+        .works__result {
+            margin-top: 100px;
+            .works__title {
+                font-size: 25px;
+            }
+            .works__digits {
+                margin-top: 40px;
+                .result-digit {
+                    .statictic-num {
+                        font-size: 70px;
+                    }
+                    p {
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    
+        .partners {
+            margin-top: 100px;
+            &__title {
+                font-size: 25px;
+            }
+            &__wrapper {
+                margin-top: 50px;
+                .partners-item {
+                    scale: 0.8;
+                }
+            }
+        }
+    
+        .partnership {
+            margin-top: 100px;
+            &__title {
+                font-size: 25px;
+            }
+            &__table {
+                margin-top: 50px;
+                table {
+                    th {
+                        padding: 1%;
+                        font-size: 20px;
+                    }
+                    .partnerType {
+                        font-size: 20px;
+                    }
+                    .thPartnerType {
+                        text-align: left;
+                        padding-left: 0px;
+                    }
+                    .parnershipPrice {
+                        font-size: 18px;
+                    }
+                }
+            }
+            &__feed {
+                .connectWithUs {
+                    width: 250px;
+                    height: 66px;
+                    font-size: 22px;
+    
+                }
+                .detailedConditions {
+                    i {
+                        font-size: 22px;
+                    }
+                    p {
+                        font-size: 18px;
+                        margin-left: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    .employers-section {
+        .employers {
+            .promo__buttons {
+
+                .partnersLevel {
+                    width: 200px;
+                    font-size: 14px;
+                }
+                .jobOffer {
+                    width: 200px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .works__result {
+            margin-top: 100px;
+            .works__title {
+                font-size: 23px;
+            }
+            .works__digits {
+                margin-top: 40px;
+                .result-digit {
+                    .statictic-num {
+                        font-size: 63px;
+                    }
+                    p {
+                        font-size: 23px;
+                    }
+                }
+            }
+        }
+    
+        .partners {
+            margin-top: 100px;
+            &__title {
+                font-size: 25px;
+            }
+            &__wrapper {
+                margin-top: 50px;
+                .partners-item {
+                    scale: 0.6;
+                }
+                .gpb-logo {
+                    img {
+                        margin-left: -70px;
+                    }
+                }
+            }
+        }
+    
+        .partnership {
+            margin-top: 100px;
+            &__title {
+                font-size: 25px;
+            }
+            &__table {
+                margin-top: 50px;
+                table {
+                    th {
+                        font-size: 18px;
+                    }
+                    .partnerType {
+                        font-size: 18px;
+                    }
+                    .parnershipPrice {
+                        font-size: 16px;
+                    }
+                }
+            }
+            &__feed {
+                .connectWithUs {
+                    width: 200px;
+                    height: 50px;
+                    font-size: 18px;
+    
+                }
+                .detailedConditions {
+                    i {
+                        font-size: 20px;
+                    }
+                    p {
+                        font-size: 18px;
+                        margin-left: 20px;
+                    }
                 }
             }
         }

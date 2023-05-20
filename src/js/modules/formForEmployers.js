@@ -41,9 +41,9 @@ const formForEmployers = () => {
 
             postData('sendVacancyOffer.php', json)
             .then(data => {
-                alert('Предложение вакансии успешно отправлено, с Вами свяжуться!');
+                alert('Предложение вакансии успешно отправлено, с Вами свяжутся!');
             }).catch(() => {
-                alert('При отправке произогла ошибка, попробуйте снова');
+                alert('При отправке произошла ошибка, попробуйте снова');
             }).finally(() => {
                 form.reset();
                 hideLoaderIdentity();

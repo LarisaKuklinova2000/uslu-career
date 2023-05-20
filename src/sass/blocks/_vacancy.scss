@@ -4,7 +4,6 @@
 }
 
 .vacancy {
-    // background: url(../img/Vector.png) repeat;
     width: 100%;
     min-height: 1500px;
     padding-top: 30px;
@@ -83,6 +82,7 @@
             display: block;
             color: #FFFFFF;
             font-size: 70px;
+            width: 400px;
         }
         .title__text {
             font-size: 30px;
@@ -126,15 +126,54 @@
 @media (max-width: 1500px) {
     .vacancy {
         &__header {
-            .devider {
-                width: 300px;
-
+            margin-top: 120px;
+            height: 60px;
+            .title__wrapper {
+                padding-right: 50px;
+                height: 110px;
             }
-            .title-devider {
-                font-size: 30px;
+            .vacancy-title {
+                font-size: 48px;
+            }
+            .title__text {
+                font-size: 22px;
+                line-height: 25px;
+            }
+            .title_filler {
+                height: 110px;
+            }
+        }    
+        &__promo {
+            &-img {
+                width: 550px;
+                img {
+                    width: 85%;
+                }
+            }
+            &-text {
+                font-size: 20px;
+                line-height: 25px;
+                h2 {
+                    font-size: 40px;
+                    line-height: 35px;
+                }
+                .promo__buttons {
+                    button {
+                        width: 300px;
+                        height: 50px;
+                        font-size: 18px;
+                    }
+                    .to__resumeConstructor {
+                        width: 250px;
+                        margin-left: 70px;
+                    }
+                    .jobOffer {
+                        width: 250px;
+                        margin-left: 70px;
+                    }
+                }
             }
         }
-
         &__cards {
             width: 100%;
             margin-top: 50px;
@@ -149,6 +188,25 @@
 
 @media (max-width: 1080px) {
     .vacancy {
+        &__header {
+            margin-top: 120px;
+            height: 50px;
+            .title__wrapper {
+                padding-right: 50px;
+                height: 100px;
+            }
+            .vacancy-title {
+                font-size: 45px;
+                width: 380px;
+            }
+            .title__text {
+                font-size: 18px;
+                line-height: 22px;
+            }
+            .title_filler {
+                height: 100px;
+            }
+        }    
         &__promo {
             &-text {
                 font-size: 15px;
@@ -157,15 +215,21 @@
                     font-size: 30px;
                     line-height: 30px;
                 }
-            }
-        }
-        &__header {
-            .devider {
-                width: 200px;
-
-            }
-            .title-devider {
-                font-size: 25px;
+                .promo__buttons {
+                    button {
+                        height: 50px;
+                        font-size: 15px;
+                        width: 270px;
+                    }
+                    .to__resumeConstructor {
+                        width: 150px;
+                        margin-left: 40px;
+                    }
+                    .jobOffer {
+                        width: 200px;
+                        margin-left: 0px;
+                    }
+                }
             }
         }
     }

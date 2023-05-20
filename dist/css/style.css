@@ -266,6 +266,7 @@ body {
   display: block;
   color: #FFFFFF;
   font-size: 70px;
+  width: 400px;
 }
 .vacancy__header .title__text {
   font-size: 30px;
@@ -303,11 +304,50 @@ body {
 }
 
 @media (max-width: 1500px) {
-  .vacancy__header .devider {
-    width: 300px;
+  .vacancy__header {
+    margin-top: 120px;
+    height: 60px;
   }
-  .vacancy__header .title-devider {
-    font-size: 30px;
+  .vacancy__header .title__wrapper {
+    padding-right: 50px;
+    height: 110px;
+  }
+  .vacancy__header .vacancy-title {
+    font-size: 48px;
+  }
+  .vacancy__header .title__text {
+    font-size: 22px;
+    line-height: 25px;
+  }
+  .vacancy__header .title_filler {
+    height: 110px;
+  }
+  .vacancy__promo-img {
+    width: 550px;
+  }
+  .vacancy__promo-img img {
+    width: 85%;
+  }
+  .vacancy__promo-text {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .vacancy__promo-text h2 {
+    font-size: 40px;
+    line-height: 35px;
+  }
+  .vacancy__promo-text .promo__buttons button {
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .vacancy__promo-text .promo__buttons .to__resumeConstructor {
+    width: 250px;
+    margin-left: 70px;
+  }
+  .vacancy__promo-text .promo__buttons .jobOffer {
+    width: 250px;
+    margin-left: 70px;
   }
   .vacancy__cards {
     width: 100%;
@@ -319,6 +359,25 @@ body {
   }
 }
 @media (max-width: 1080px) {
+  .vacancy__header {
+    margin-top: 120px;
+    height: 50px;
+  }
+  .vacancy__header .title__wrapper {
+    padding-right: 50px;
+    height: 100px;
+  }
+  .vacancy__header .vacancy-title {
+    font-size: 45px;
+    width: 380px;
+  }
+  .vacancy__header .title__text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .vacancy__header .title_filler {
+    height: 100px;
+  }
   .vacancy__promo-text {
     font-size: 15px;
     line-height: 18px;
@@ -327,11 +386,18 @@ body {
     font-size: 30px;
     line-height: 30px;
   }
-  .vacancy__header .devider {
-    width: 200px;
+  .vacancy__promo-text .promo__buttons button {
+    height: 50px;
+    font-size: 15px;
+    width: 270px;
   }
-  .vacancy__header .title-devider {
-    font-size: 25px;
+  .vacancy__promo-text .promo__buttons .to__resumeConstructor {
+    width: 150px;
+    margin-left: 40px;
+  }
+  .vacancy__promo-text .promo__buttons .jobOffer {
+    width: 200px;
+    margin-left: 0px;
   }
 }
 @media (max-width: 600px) {
@@ -524,7 +590,7 @@ body {
   margin-top: 130px;
   min-height: 250px;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 .footer .socialLinks__wrapper {
   display: flex;
@@ -568,6 +634,9 @@ body {
 }
 
 @media (max-width: 1080px) {
+  .footer {
+    margin-top: 10px;
+  }
   .footer .socialLinks__wrapper {
     flex-direction: column;
   }
@@ -934,6 +1003,15 @@ body {
     color: #003CA5;
   }
 }
+.employers-section .table__container {
+  width: 90%;
+  margin: 0 auto;
+}
+.employers-section .employers .promo__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .employers-section .employers .promo__buttons .partnersLevel {
   width: 300px;
   cursor: pointer;
@@ -960,7 +1038,7 @@ body {
   text-align: center;
 }
 .employers-section .works__result .works__digits .result-digit .statictic-num {
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 700;
   color: #003CA5;
 }
@@ -982,6 +1060,9 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.employers-section .partners__wrapper .partners-item {
+  width: auto;
+}
 .employers-section .partnership {
   margin-top: 120px;
 }
@@ -997,14 +1078,14 @@ body {
   width: 100%;
 }
 .employers-section .partnership__table table th {
-  padding: 20px;
+  padding: 1%;
   font-size: 25px;
   color: #003CA5;
   font-weight: normal;
 }
 .employers-section .partnership__table table td {
   text-align: center;
-  padding: 20px;
+  padding: 1%;
 }
 .employers-section .partnership__table table .partnerType {
   text-align: left;
@@ -1063,6 +1144,158 @@ body {
   margin-left: 25px;
 }
 
+@media (max-width: 1650px) {
+  .employers-section .employers .promo__buttons .partnersLevel {
+    width: 250px;
+    font-size: 20px;
+  }
+  .employers-section .employers .promo__buttons .jobOffer {
+    width: 300px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 1300px) {
+  .employers-section .employers .promo__buttons .partnersLevel {
+    width: 200px;
+    font-size: 18px;
+  }
+  .employers-section .employers .promo__buttons .jobOffer {
+    width: 250px;
+    font-size: 18px;
+  }
+  .employers-section .works__result {
+    margin-top: 100px;
+  }
+  .employers-section .works__result .works__title {
+    font-size: 25px;
+  }
+  .employers-section .works__result .works__digits {
+    margin-top: 40px;
+  }
+  .employers-section .works__result .works__digits .result-digit .statictic-num {
+    font-size: 70px;
+  }
+  .employers-section .works__result .works__digits .result-digit p {
+    font-size: 25px;
+  }
+  .employers-section .partners {
+    margin-top: 100px;
+  }
+  .employers-section .partners__title {
+    font-size: 25px;
+  }
+  .employers-section .partners__wrapper {
+    margin-top: 50px;
+  }
+  .employers-section .partners__wrapper .partners-item {
+    scale: 0.8;
+  }
+  .employers-section .partnership {
+    margin-top: 100px;
+  }
+  .employers-section .partnership__title {
+    font-size: 25px;
+  }
+  .employers-section .partnership__table {
+    margin-top: 50px;
+  }
+  .employers-section .partnership__table table th {
+    padding: 1%;
+    font-size: 20px;
+  }
+  .employers-section .partnership__table table .partnerType {
+    font-size: 20px;
+  }
+  .employers-section .partnership__table table .thPartnerType {
+    text-align: left;
+    padding-left: 0px;
+  }
+  .employers-section .partnership__table table .parnershipPrice {
+    font-size: 18px;
+  }
+  .employers-section .partnership__feed .connectWithUs {
+    width: 250px;
+    height: 66px;
+    font-size: 22px;
+  }
+  .employers-section .partnership__feed .detailedConditions i {
+    font-size: 22px;
+  }
+  .employers-section .partnership__feed .detailedConditions p {
+    font-size: 18px;
+    margin-left: 25px;
+  }
+}
+@media (max-width: 1080px) {
+  .employers-section .employers .promo__buttons .partnersLevel {
+    width: 200px;
+    font-size: 14px;
+  }
+  .employers-section .employers .promo__buttons .jobOffer {
+    width: 200px;
+    font-size: 14px;
+  }
+  .employers-section .works__result {
+    margin-top: 100px;
+  }
+  .employers-section .works__result .works__title {
+    font-size: 23px;
+  }
+  .employers-section .works__result .works__digits {
+    margin-top: 40px;
+  }
+  .employers-section .works__result .works__digits .result-digit .statictic-num {
+    font-size: 63px;
+  }
+  .employers-section .works__result .works__digits .result-digit p {
+    font-size: 23px;
+  }
+  .employers-section .partners {
+    margin-top: 100px;
+  }
+  .employers-section .partners__title {
+    font-size: 25px;
+  }
+  .employers-section .partners__wrapper {
+    margin-top: 50px;
+  }
+  .employers-section .partners__wrapper .partners-item {
+    scale: 0.6;
+  }
+  .employers-section .partners__wrapper .gpb-logo img {
+    margin-left: -70px;
+  }
+  .employers-section .partnership {
+    margin-top: 100px;
+  }
+  .employers-section .partnership__title {
+    font-size: 25px;
+  }
+  .employers-section .partnership__table {
+    margin-top: 50px;
+  }
+  .employers-section .partnership__table table th {
+    font-size: 18px;
+  }
+  .employers-section .partnership__table table .partnerType {
+    font-size: 18px;
+  }
+  .employers-section .partnership__table table .parnershipPrice {
+    font-size: 16px;
+  }
+  .employers-section .partnership__feed .connectWithUs {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .employers-section .partnership__feed .detailedConditions i {
+    font-size: 20px;
+  }
+  .employers-section .partnership__feed .detailedConditions p {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+}
 .employersForm {
   background-color: white;
   width: 750px;

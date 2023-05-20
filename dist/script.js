@@ -217,9 +217,9 @@ const formForEmployers = () => {
       const formData = new FormData(form);
       const json = JSON.stringify(Object.fromEntries(formData.entries()));
       (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.postData)('sendVacancyOffer.php', json).then(data => {
-        alert('Предложение вакансии успешно отправлено, с Вами свяжуться!');
+        alert('Предложение вакансии успешно отправлено, с Вами свяжутся!');
       }).catch(() => {
-        alert('При отправке произогла ошибка, попробуйте снова');
+        alert('При отправке произошла ошибка, попробуйте снова');
       }).finally(() => {
         form.reset();
         hideLoaderIdentity();

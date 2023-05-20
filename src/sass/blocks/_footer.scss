@@ -2,7 +2,7 @@
     margin-top: 130px;
     min-height: 250px;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 50px;
 
     .socialLinks {
         &__wrapper {
@@ -55,6 +55,7 @@
 
 @media (max-width: 1080px) {
     .footer {
+        margin-top: 10px;
         .socialLinks {
             &__wrapper {
                 flex-direction: column;

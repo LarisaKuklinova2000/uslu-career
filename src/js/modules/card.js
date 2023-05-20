@@ -12,9 +12,9 @@ export default class EmployerCard {
     }
 
     renderCards() {
-        const element = document.createElement('div')
-        element.classList.add('card', `card${this.id}`)
-        element.style.background = `white`
+        const element = document.createElement('div');
+        element.classList.add('card', `card${this.id}`);
+        element.style.background = `white`;
         element.innerHTML = `
             <div class="card__title">${this.employer}</div>
             <div class="card__employer">${this.jobTitle}</div>
@@ -24,7 +24,7 @@ export default class EmployerCard {
                 <button class="moreInfoBtn">Подробнее</button>
                 <button class="feed" data-id=${this.id}>Связаться</button>
             </div>
-        `
+        `;
         document.querySelector(`#${this.category}Cards`).append(element);
     }
 
@@ -79,20 +79,20 @@ export default class EmployerCard {
 
             if (fileSize > 15 && fileType !== 'pdf') {
                 document.querySelector('#sendForm').disabled = true;
-                invalidFileTypeMessage.style.display = 'block'
-                invalidFileSizeMessage.style.display = 'block'
+                invalidFileTypeMessage.style.display = 'block';
+                invalidFileSizeMessage.style.display = 'block';
             } else if (fileSize > 15 && fileType === 'pdf') {
                 document.querySelector('#sendForm').disabled = true;
-                invalidFileTypeMessage.style.display = 'none'
-                invalidFileSizeMessage.style.display = 'block'
+                invalidFileTypeMessage.style.display = 'none';
+                invalidFileSizeMessage.style.display = 'block';
             } else if (fileSize <= 15 && fileType !== 'pdf') {
                 document.querySelector('#sendForm').disabled = true;
-                invalidFileSizeMessage.style.display = 'none'
-                invalidFileTypeMessage.style.display = 'block'
+                invalidFileSizeMessage.style.display = 'none';
+                invalidFileTypeMessage.style.display = 'block';
             } else {
                 document.querySelector('#sendForm').disabled = false;
-                invalidFileSizeMessage.style.display = 'none'
-                invalidFileTypeMessage.style.display = 'none'
+                invalidFileSizeMessage.style.display = 'none';
+                invalidFileTypeMessage.style.display = 'none';
             }
         }
 
