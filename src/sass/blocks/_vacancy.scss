@@ -83,6 +83,9 @@
             color: #FFFFFF;
             font-size: 70px;
             width: 400px;
+            &-long {
+                font-size: 45px
+            }
         }
         .title__text {
             font-size: 30px;
@@ -96,10 +99,10 @@
             position: absolute;
             background-color: $main-color;
             height: 143px;
-            width: 500px;
+            width: 620px;
             left: -10%;
             z-index: 9;
-            border-radius: 60px;
+            overflow: hidden;
         }
     }
 
@@ -141,6 +144,7 @@
             }
             .title_filler {
                 height: 110px;
+                width: 550px;
             }
         }    
         &__promo {
@@ -191,20 +195,27 @@
         &__header {
             margin-top: 120px;
             height: 50px;
+            flex-direction: column;
+            align-items: start;
             .title__wrapper {
-                padding-right: 50px;
+                padding-right: 0px;
                 height: 100px;
             }
             .vacancy-title {
-                font-size: 45px;
-                width: 380px;
+                font-size: 40px;
+                width: 340px;
+                height: 70px;
+                padding-top: 2%;
             }
             .title__text {
                 font-size: 18px;
                 line-height: 22px;
+                margin-left: 0;
+                width: 350px;
             }
             .title_filler {
-                height: 100px;
+                height: 70px;
+                width: 350px;
             }
         }    
         &__promo {
@@ -232,6 +243,9 @@
                 }
             }
         }
+        &__cards {
+            margin-top: 120px;
+        }
     }
 }
 
@@ -239,6 +253,8 @@
     .vacancy {
         &__promo {
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             &-img {
                 width: 50%;
                 img {
@@ -254,16 +270,6 @@
                     font-size: 30px;
                     line-height: 30px;
                 }
-            }
-        }
-        &__header {
-            .devider {
-                width: 50px;
-                border: solid 1px black;
-                border-bottom: none;
-            }
-            .title-devider {
-                font-size: 18px;
             }
         }
     }
@@ -295,10 +301,28 @@
         }
         &__header {
             margin-top: 20px;
-        }
+            .title__wrapper {
+                padding-right: 0px;
+                height: 100px;
+            }
+            .vacancy-title {
+                font-size: 25px;
+                width: 270px;
+                padding-top: 7%;
+            }
+            .title__text {
+                font-size: 12px;
+                line-height: 14px;
+                margin-left: 0;
+                width: 270px;
+            }
+            .title_filler {
+                width: 270px;
+            }
+        }    
         &__cards {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 80px;
             display: grid;
             grid-template-columns: repeat(auto-fit, 320px);
             gap: 40px;

@@ -64,7 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 60px 120px 170px 120px;
+  padding: 5% 15% 20% 15%;
 }
 .header .links {
   display: flex;
@@ -93,7 +93,7 @@ body {
   position: absolute;
   left: 0;
   width: 0;
-  height: 7px;
+  height: 5px;
   border-radius: 5px;
   background-color: white;
   content: "";
@@ -268,6 +268,9 @@ body {
   font-size: 70px;
   width: 400px;
 }
+.vacancy__header .vacancy-title-long {
+  font-size: 45px;
+}
 .vacancy__header .title__text {
   font-size: 30px;
   line-height: 35px;
@@ -280,10 +283,10 @@ body {
   position: absolute;
   background-color: #003CA5;
   height: 143px;
-  width: 500px;
+  width: 620px;
   left: -10%;
   z-index: 9;
-  border-radius: 60px;
+  overflow: hidden;
 }
 .vacancy__wrapper {
   width: 100%;
@@ -321,6 +324,7 @@ body {
   }
   .vacancy__header .title_filler {
     height: 110px;
+    width: 550px;
   }
   .vacancy__promo-img {
     width: 550px;
@@ -362,21 +366,28 @@ body {
   .vacancy__header {
     margin-top: 120px;
     height: 50px;
+    flex-direction: column;
+    align-items: start;
   }
   .vacancy__header .title__wrapper {
-    padding-right: 50px;
+    padding-right: 0px;
     height: 100px;
   }
   .vacancy__header .vacancy-title {
-    font-size: 45px;
-    width: 380px;
+    font-size: 40px;
+    width: 340px;
+    height: 70px;
+    padding-top: 2%;
   }
   .vacancy__header .title__text {
     font-size: 18px;
     line-height: 22px;
+    margin-left: 0;
+    width: 350px;
   }
   .vacancy__header .title_filler {
-    height: 100px;
+    height: 70px;
+    width: 350px;
   }
   .vacancy__promo-text {
     font-size: 15px;
@@ -399,10 +410,15 @@ body {
     width: 200px;
     margin-left: 0px;
   }
+  .vacancy__cards {
+    margin-top: 120px;
+  }
 }
 @media (max-width: 600px) {
   .vacancy__promo {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .vacancy__promo-img {
     width: 50%;
@@ -419,14 +435,6 @@ body {
   .vacancy__promo-text h2 {
     font-size: 30px;
     line-height: 30px;
-  }
-  .vacancy__header .devider {
-    width: 50px;
-    border: solid 1px black;
-    border-bottom: none;
-  }
-  .vacancy__header .title-devider {
-    font-size: 18px;
   }
 }
 @media (max-width: 470px) {
@@ -455,9 +463,27 @@ body {
   .vacancy__header {
     margin-top: 20px;
   }
+  .vacancy__header .title__wrapper {
+    padding-right: 0px;
+    height: 100px;
+  }
+  .vacancy__header .vacancy-title {
+    font-size: 25px;
+    width: 270px;
+    padding-top: 7%;
+  }
+  .vacancy__header .title__text {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 0;
+    width: 270px;
+  }
+  .vacancy__header .title_filler {
+    width: 270px;
+  }
   .vacancy__cards {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 320px);
     gap: 40px;
@@ -638,7 +664,9 @@ body {
     margin-top: 10px;
   }
   .footer .socialLinks__wrapper {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
   }
   .footer .socialLinks__item .link {
     font-size: 15px;
@@ -665,9 +693,6 @@ body {
   }
 }
 @media (max-width: 450px) {
-  .footer .socialLinks__wrapper {
-    flex-direction: column;
-  }
   .footer .copyright, .footer .developers {
     text-align: center;
     width: 80%;
@@ -714,6 +739,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.3 ease;
   --animate-duration: 0.3s;
+  overflow: hidden;
 }
 
 .form {
@@ -1006,11 +1032,12 @@ body {
 .employers-section .table__container {
   width: 90%;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 .employers-section .employers .promo__buttons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
 }
 .employers-section .employers .promo__buttons .partnersLevel {
   width: 300px;
@@ -1108,6 +1135,10 @@ body {
   width: 30%;
   border: 1.76747px solid #003CA5;
   height: 0px;
+}
+.employers-section .partnership__table table .included svg {
+  height: 30%;
+  width: 30%;
 }
 .employers-section .partnership__feed {
   margin-top: 75px;
@@ -1234,6 +1265,7 @@ body {
   .employers-section .employers .promo__buttons .jobOffer {
     width: 200px;
     font-size: 14px;
+    margin-left: 20px;
   }
   .employers-section .works__result {
     margin-top: 100px;
@@ -1243,12 +1275,14 @@ body {
   }
   .employers-section .works__result .works__digits {
     margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   .employers-section .works__result .works__digits .result-digit .statictic-num {
     font-size: 63px;
   }
   .employers-section .works__result .works__digits .result-digit p {
-    font-size: 23px;
+    font-size: 17px;
   }
   .employers-section .partners {
     margin-top: 100px;
@@ -1258,6 +1292,8 @@ body {
   }
   .employers-section .partners__wrapper {
     margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   .employers-section .partners__wrapper .partners-item {
     scale: 0.6;
@@ -1275,13 +1311,13 @@ body {
     margin-top: 50px;
   }
   .employers-section .partnership__table table th {
-    font-size: 18px;
+    font-size: 15px;
   }
   .employers-section .partnership__table table .partnerType {
-    font-size: 18px;
+    font-size: 15px;
   }
   .employers-section .partnership__table table .parnershipPrice {
-    font-size: 16px;
+    font-size: 13px;
   }
   .employers-section .partnership__feed .connectWithUs {
     width: 200px;
@@ -1294,6 +1330,88 @@ body {
   .employers-section .partnership__feed .detailedConditions p {
     font-size: 18px;
     margin-left: 20px;
+  }
+}
+@media (max-width: 880px) {
+  .employers-section .partnership {
+    margin-top: 100px;
+  }
+  .employers-section .partnership__title {
+    font-size: 25px;
+  }
+  .employers-section .partnership__table {
+    margin-top: 50px;
+  }
+  .employers-section .partnership__table table th {
+    font-size: 12px;
+  }
+  .employers-section .partnership__table table .partnerType {
+    font-size: 12px;
+  }
+  .employers-section .partnership__table table .parnershipPrice {
+    font-size: 10px;
+  }
+  .employers-section .partnership__feed .connectWithUs {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .employers-section .partnership__feed .detailedConditions i {
+    font-size: 15px;
+  }
+  .employers-section .partnership__feed .detailedConditions p {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 650px) {
+  .employers-section .partnership {
+    margin-top: 50px;
+  }
+  .employers-section .partnership__title {
+    font-size: 20px;
+  }
+  .employers-section .partnership__table {
+    margin-top: 30px;
+  }
+  .employers-section .partnership__table table th {
+    font-size: 10px;
+  }
+  .employers-section .partnership__table table .partnerType {
+    font-size: 10px;
+  }
+  .employers-section .partnership__table table .parnershipPrice {
+    font-size: 8px;
+  }
+  .employers-section .partnership__feed {
+    margin-top: 20px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .employers-section .partnership__feed .connectWithUs {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .employers-section .partnership__feed .detailedConditions i {
+    font-size: 15px;
+  }
+  .employers-section .partnership__feed .detailedConditions p {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 530px) {
+  .employers-section .partnership__table table th {
+    font-size: 7px;
+  }
+  .employers-section .partnership__table table .partnerType {
+    font-size: 7px;
+  }
+  .employers-section .partnership__table table .parnershipPrice {
+    font-size: 6px;
   }
 }
 .employersForm {
@@ -1561,4 +1679,64 @@ body {
   width: 80%;
   margin: 0 auto;
   animation: 2s linear 0s normal infinite fadeInUp;
+}
+
+@media (max-width: 1025px) {
+  .main-overlay {
+    overflow-y: visible;
+  }
+  .employersForm {
+    overflow-y: visible;
+    width: 500px;
+    padding: 10px 0;
+    border-radius: 20px;
+    top: 400px;
+  }
+  .employersForm #employersForm__close {
+    font-size: 25px;
+    top: 12px;
+    right: 25px;
+  }
+  .employersForm__header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .employersForm__wrapper {
+    width: 90%;
+  }
+  .employersForm__wrapper .employersTextInput {
+    height: 30px;
+    border: 1px solid #003CA5;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  .employersForm__wrapper .responsibilities {
+    height: 80px;
+  }
+  .employersForm__wrapper .salary__inputs {
+    width: 100%;
+  }
+  .employersForm__wrapper .salary__inputs .salaryLabel {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .employersForm__wrapper .salary__inputs .employersTextInput {
+    width: 30%;
+  }
+  .employersForm__wrapper .watchStudents,
+  .employersForm__wrapper .workExp,
+  .employersForm__wrapper .formOfEmployment {
+    justify-content: start;
+  }
+  .employersForm__wrapper .watchStudents .radioBlock,
+  .employersForm__wrapper .workExp .radioBlock,
+  .employersForm__wrapper .formOfEmployment .radioBlock {
+    margin-left: 5px;
+  }
+  .employersForm__wrapper .employersForm__footer {
+    margin-top: 20px;
+  }
+  .employersForm__wrapper .employersForm__footer .haveQuestions {
+    font-size: 10px;
+  }
 }

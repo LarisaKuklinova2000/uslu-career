@@ -258,3 +258,64 @@
         animation: 2s linear 0s normal infinite fadeInUp;
     } 
 }
+
+//media rules
+
+@media (max-width: 1025px) {
+    .main-overlay {
+        overflow-y: visible;
+    }
+    .employersForm {
+        overflow-y: visible;
+        width: 500px;
+        padding: 10px 0;
+        border-radius: 20px;
+        top: 400px;
+        #employersForm__close {
+            font-size: 25px;
+            top: 12px;
+            right: 25px;
+        }
+        &__header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        &__wrapper {
+            width: 90%;
+            .employersTextInput {
+                height: 30px;
+                border: 1px solid #003CA5;
+                border-radius: 20px;
+                padding: 5px 10px;
+            }
+            .responsibilities {
+                height: 80px;
+            }
+            .salary__inputs {
+                width: 100%;
+                .salaryLabel {
+                    margin-right: 0px;
+                    margin-left: 0px;
+                }
+                .employersTextInput {
+                    width: 30%;
+                }
+            }
+            .watchStudents,
+            .workExp,
+            .formOfEmployment {
+                justify-content: start;
+                .radioBlock {
+                    margin-left: 5px;
+                }
+            }
+            .employersForm__footer {
+                margin-top: 20px;
+                .haveQuestions {
+                    font-size: 10px;
+                }
+            }
+    
+        }
+    }
+}

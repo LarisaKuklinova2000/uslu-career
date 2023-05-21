@@ -58,7 +58,9 @@
         margin-top: 10px;
         .socialLinks {
             &__wrapper {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 80%;
             }
             &__item {
                 .link {
@@ -99,11 +101,6 @@
 
 @media (max-width: 450px) {
     .footer {
-        .socialLinks {
-            &__wrapper {
-                flex-direction: column;
-            }
-        }
     
         .copyright,.developers {
             text-align: center;
