@@ -35,9 +35,21 @@
         }
     }
 
+    .policy {
+        margin: 20px auto;
+        width: max-content;
+        .ppd-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: $main-color;
+            font-size: 18px;
+        }
+    }
+
     .copyright,.developers {
         width: max-content;
-        margin: 40px auto 0 auto;
+        margin: 20px auto 20px auto;
         font-size: 18px;
         color: $main-color;
         a {

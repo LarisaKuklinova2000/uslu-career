@@ -37,6 +37,42 @@ body {
     font-style: normal;
 }
 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #003CA5 #FFFFFF;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 4px;
+    width: 4px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: #FFFFFF;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #EFEFEF;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #F0F0F0;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #003CA5;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #002C78;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #003CA5;
+  }
+
 @import 'blocks/header';
 @import 'blocks/vacancy';
 @import 'blocks/card';
@@ -44,3 +80,4 @@ body {
 @import 'blocks/form';
 @import 'blocks/employers';
 @import 'blocks/employersForm';
+@import 'blocks/ppd';

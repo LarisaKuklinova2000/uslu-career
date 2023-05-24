@@ -1,0 +1,38 @@
+.ppd__wrapper {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 80%;
+    height: 80%;
+    padding: 40px 40px;
+    border-radius: 30px;
+    .ppd-text {
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+        padding-right: 10px;
+    }
+    #ppd__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: $main-color;
+        cursor: pointer;
+        font-size: 20px;
+    }
+}
+
+.ppd-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3 ease;
+    --animate-duration: 0.3s;
+    overflow: hidden;
+}

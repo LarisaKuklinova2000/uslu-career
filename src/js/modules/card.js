@@ -143,7 +143,7 @@ export default class EmployerCard {
                 const overlay = document.querySelector('.main-overlay');
                 alert('Резюме успешно отправлено, с Вами свяжуться');
                 overlay.classList.replace('visible', 'hidden');
-                document.body.style.overflow = '';
+                document.body.style.overflowY = 'visible';
                 document.querySelector('.form').remove();
                 hideLoaderIdentity();
             }).fail(function() {
@@ -159,7 +159,7 @@ export default class EmployerCard {
         overlay.addEventListener('click', (e) => {
             if (e.target.id === 'modal__close') {
                 overlay.classList.replace('visible', 'hidden');
-                document.body.style.overflow = '';
+                document.body.style.overflowY = 'visible';
                 e.target.parentNode.remove();
             }
         });

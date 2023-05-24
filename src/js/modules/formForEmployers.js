@@ -16,7 +16,7 @@ const formForEmployers = () => {
         if (e.target.id == 'employersForm__close') {
             overlay.classList.replace('visible', 'hidden');
             employersForm.style.display = 'none';
-            document.body.style.overflow = '';
+            document.body.style.overflowY = 'visible';
         }
     });
 
