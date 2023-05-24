@@ -16,7 +16,7 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    height: 400px;
+    height: 450px;
     width: 800px;
     display: flex;
     align-items: center;
@@ -30,11 +30,14 @@
         font-size: 32px;
         top: 15px;
         right: 15px;
-        color: #003CA5;
+        color: $main-color;
     }
     &__img {
         width: 30%;
         height: 100%;
+        img {
+            height: 100%;
+        }
     }
     &__items {
         height: 100%;
@@ -48,22 +51,22 @@
         .FIOInput {
             width: 420px;
             height: 45px;
-            border: 2px solid #003CA5;
+            border: 2px solid $main-color;
             border-radius: 30px;
             padding-left: 25px;
             &::placeholder {
-                color: #003CA5;
+                color: $main-color;
             }
         }
         label {
             font-size: 25px;
-            color: #003CA5;
+            color: $main-color;
             cursor: pointer;
         }
         button {
             width: 135px;
             height: 35px;
-            background: #003CA5;
+            background: $main-color;
             border-radius: 30px;
             border: none;
             color: white;
@@ -104,7 +107,7 @@
                 height: 55px;
                 padding-left: 11px;
                 font-size: 14px;
-                color: #003CA5;
+                color: $main-color;
                 .uploadFileName {
                     color: gray;
                 }
@@ -117,10 +120,10 @@
         .noResume {
             display: block;
             font-size: 14px;
-            color: #003CA5;
+            color: $main-color;
             a {
                 text-decoration: none;
-                color: #003CA5;
+                color: $main-color;
             }
         }
         .invalidFileSize,.invalidFileType {
@@ -131,9 +134,31 @@
     }
     h2, h3 {
         line-height: 25px;
-        color: #003CA5;
+        color: $main-color;
         font-size: 25px;
         width: 90%;
+    }
+    .ppdCp__wrapper {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        i {
+            color: $main-color;
+            cursor: pointer;
+            font-size: 23px;
+            display: block;
+            margin-right: 10px;
+        }
+        .ppdCp-agree {
+            font-size: 14px;
+            color: $main-color;
+            display: block;
+        }
+        .cp-span, .ppd-span {
+            font-weight: bold;
+            cursor: pointer;
+        }
     }
 }
 
@@ -206,7 +231,7 @@
             .FIOInput {
                 width: 80%;
                 &::placeholder {
-                    color: #003CA5;
+                    color: $main-color;
                 }
             }
             button {
@@ -229,7 +254,7 @@
                     height: 40px;
                     padding-left: 11px;
                     font-size: 14px;
-                    color: #003CA5;
+                    color: $main-color;
                     .uploadFileName {
                         color: gray;
                     }
@@ -242,7 +267,7 @@
             .noResume {
                 display: block;
                 font-size: 12px;
-                color: #003CA5;
+                color: $main-color;
             }
         }
         h2, h3 {
@@ -280,7 +305,7 @@
             .FIOInput {
                 width: 80%;
                 &::placeholder {
-                    color: #003CA5;
+                    color: $main-color;
                 }
             }
             .addFile {
@@ -290,7 +315,7 @@
                 }
                 &__text {
                     font-size: 10px;
-                    color: #003CA5;
+                    color: $main-color;
                     .uploadFileName {
                         color: gray;
                     }
@@ -303,7 +328,7 @@
             .noResume {
                 display: block;
                 font-size: 10px;
-                color: #003CA5;
+                color: $main-color;
             }
         }
     }

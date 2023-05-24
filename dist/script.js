@@ -12,6 +12,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ EmployerCard; }
 /* harmony export */ });
+/* harmony import */ var _ppd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ppd */ "./src/js/modules/ppd.js");
+/* harmony import */ var _ppdText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ppdText */ "./src/js/modules/ppdText.js");
+
+
 class EmployerCard {
   constructor(id, category, jobTitle, employer, salary, tags, link, feed, vacancyArr) {
     this.id = id;
@@ -67,6 +71,10 @@ class EmployerCard {
                     </div>
                     <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required accept="application/pdf"/>
                 </div>
+                <div class='ppdCp__wrapper'>
+                    <i class="fa-regular fa-square ppdCpCheck"></i>
+                    <span class='ppdCp-agree'>Согласен с <span class='cp-span'>политикой конфидециальности</span> и <span class='ppd-span'>правилами обработки персональных данных</span></span>
+                </div>
                 <button type="submit" id="sendForm">Отправить</button>
                 <div class="noResume">
                     Еще не составил резюме? 
@@ -82,7 +90,22 @@ class EmployerCard {
     const resume = document.querySelector('#resumeFile'),
       uploadFileName = document.querySelector('.uploadFileName'),
       invalidFileSizeMessage = document.querySelector('.invalidFileSize'),
-      invalidFileTypeMessage = document.querySelector('.invalidFileType');
+      invalidFileTypeMessage = document.querySelector('.invalidFileType'),
+      ppdCpCheck = document.querySelector('.ppdCpCheck');
+    if (ppdCpCheck.classList.contains('fa-square')) {
+      document.querySelector('#sendForm').disabled = true;
+    } else if (ppdCpCheck.classList.contains('fa-square-check')) {
+      document.querySelector('#sendForm').disabled = false;
+    }
+    ppdCpCheck.addEventListener('click', () => {
+      if (ppdCpCheck.classList.contains('fa-square')) {
+        ppdCpCheck.classList.replace('fa-square', 'fa-square-check');
+        document.querySelector('#sendForm').disabled = false;
+      } else if (ppdCpCheck.classList.contains('fa-square-check')) {
+        ppdCpCheck.classList.replace('fa-square-check', 'fa-square');
+        document.querySelector('#sendForm').disabled = true;
+      }
+    });
     function validateSize(input) {
       const fileSize = input.files[0].size / 1024 / 1024,
         fileType = input.files[0].type.split('/')[1].toLowerCase();
@@ -109,6 +132,7 @@ class EmployerCard {
       console.log(resume.files[0]);
       validateSize(resume);
     });
+    document.querySelector('.ppd-span').addEventListener('click', (0,_ppd__WEBPACK_IMPORTED_MODULE_0__["default"])('.ppd-span', _ppdText__WEBPACK_IMPORTED_MODULE_1__["default"]));
     function showLoaderIdentity() {
       $("#loader-identity").show();
     }
@@ -197,7 +221,7 @@ const formForEmployers = () => {
     employersForm.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
-  employersForm.addEventListener('click', e => {
+  overlay.addEventListener('click', e => {
     if (e.target.id == 'employersForm__close') {
       overlay.classList.replace('visible', 'hidden');
       employersForm.style.display = 'none';
@@ -265,26 +289,24 @@ const partnership = () => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ppdText__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ppdText */ "./src/js/modules/ppdText.js");
-
-const ppd = () => {
-  const overlay = document.querySelector('.ppd-overlay'),
-    btn = document.querySelector('.ppd-btn');
+const ppd = (trigger, text) => {
+  const ppdCpOverlay = document.querySelector('.ppd-overlay'),
+    btn = document.querySelector(trigger);
   btn.addEventListener('click', () => {
-    overlay.classList.replace('hidden', 'visible');
+    ppdCpOverlay.classList.replace('hidden', 'visible');
     const ppdWrapper = document.createElement('div');
     ppdWrapper.classList.add('ppd__wrapper');
     const ppdTextElem = document.createElement('div');
     ppdTextElem.classList.add('ppd-text');
     ppdTextElem.innerHTML = `
-            ${(0,_ppdText__WEBPACK_IMPORTED_MODULE_0__["default"])()}
+            ${text}
             <i class="fa-solid fa-square-xmark" id="ppd__close"></i>
         `;
     ppdWrapper.append(ppdTextElem);
-    overlay.append(ppdWrapper);
+    ppdCpOverlay.append(ppdWrapper);
     document.body.style.overflow = 'hidden';
     document.querySelector('#ppd__close').addEventListener('click', () => {
-      overlay.classList.replace('visible', 'hidden');
+      ppdCpOverlay.classList.replace('visible', 'hidden');
       document.querySelector('.ppd__wrapper').remove();
       document.body.style.overflowY = 'visible';
     });
@@ -301,8 +323,7 @@ const ppd = () => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-const ppdText = () => {
-  const text = `
+const ppdText = `
     ПОЛИТИКА ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ 
     <br/><br/>
     Центра карьеры и трудоустройства УрГЮУ им. В.Ф. Яковлева
@@ -455,8 +476,6 @@ const ppdText = () => {
     <br/>7.2. Настоящая Политика вступает в силу с момента утверждения и действует бессрочно до принятия новой Политики.
     <br/>7.3. Все изменения и дополнения к настоящей Политике должны быть утверждены директором Центра карьеры и трудоустройства Уральского государственного юридического университета им. В.Ф. Яковлева.
     `;
-  return text;
-};
 /* harmony default export */ __webpack_exports__["default"] = (ppdText);
 
 /***/ }),
@@ -661,6 +680,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_vacancy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/vacancy */ "./src/js/modules/vacancy.js");
 /* harmony import */ var _modules_formForEmployers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formForEmployers */ "./src/js/modules/formForEmployers.js");
 /* harmony import */ var _modules_ppd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/ppd */ "./src/js/modules/ppd.js");
+/* harmony import */ var _modules_ppdText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/ppdText */ "./src/js/modules/ppdText.js");
+
 
 
 
@@ -673,7 +694,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_partnershipTable__WEBPACK_IMPORTED_MODULE_1__["default"])();
   (0,_modules_vacancy__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_formForEmployers__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  (0,_modules_ppd__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  (0,_modules_ppd__WEBPACK_IMPORTED_MODULE_4__["default"])('.ppd-btn', _modules_ppdText__WEBPACK_IMPORTED_MODULE_5__["default"]);
 });
 }();
 /******/ })()

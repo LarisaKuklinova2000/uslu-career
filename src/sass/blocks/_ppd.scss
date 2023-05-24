@@ -6,7 +6,7 @@
     transform: translateX(-50%) translateY(-50%);
     width: 80%;
     height: 80%;
-    padding: 40px 40px;
+    padding: 50px 40px;
     border-radius: 30px;
     .ppd-text {
         overflow: scroll;
@@ -17,10 +17,10 @@
     #ppd__close {
         position: absolute;
         top: 15px;
-        right: 15px;
+        right: 20px;
         color: $main-color;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 30px;
     }
 }
 

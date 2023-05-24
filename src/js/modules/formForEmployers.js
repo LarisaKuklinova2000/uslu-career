@@ -12,7 +12,7 @@ const formForEmployers = () => {
         document.body.style.overflow = 'hidden';
     });
 
-    employersForm.addEventListener('click', (e) => {
+    overlay.addEventListener('click', (e) => {
         if (e.target.id == 'employersForm__close') {
             overlay.classList.replace('visible', 'hidden');
             employersForm.style.display = 'none';

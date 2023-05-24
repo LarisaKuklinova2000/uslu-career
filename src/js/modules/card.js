@@ -1,3 +1,6 @@
+import ppd from "./ppd";
+import ppdText from "./ppdText";
+
 export default class EmployerCard {
     constructor(id, category, jobTitle, employer, salary, tags, link, feed, vacancyArr) {
         this.id = id;
@@ -55,6 +58,10 @@ export default class EmployerCard {
                     </div>
                     <input class="resume" name="resumeFile[]" type="file" id="resumeFile" required accept="application/pdf"/>
                 </div>
+                <div class='ppdCp__wrapper'>
+                    <i class="fa-regular fa-square ppdCpCheck"></i>
+                    <span class='ppdCp-agree'>Согласен с <span class='cp-span'>политикой конфидециальности</span> и <span class='ppd-span'>правилами обработки персональных данных</span></span>
+                </div>
                 <button type="submit" id="sendForm">Отправить</button>
                 <div class="noResume">
                     Еще не составил резюме? 
@@ -71,7 +78,25 @@ export default class EmployerCard {
         const resume = document.querySelector('#resumeFile'),
               uploadFileName = document.querySelector('.uploadFileName'),
               invalidFileSizeMessage = document.querySelector('.invalidFileSize'),
-              invalidFileTypeMessage = document.querySelector('.invalidFileType');
+              invalidFileTypeMessage = document.querySelector('.invalidFileType'),
+              ppdCpCheck = document.querySelector('.ppdCpCheck');
+
+        if (ppdCpCheck.classList.contains('fa-square')) {
+            document.querySelector('#sendForm').disabled = true;
+        } else if (ppdCpCheck.classList.contains('fa-square-check')) {
+            document.querySelector('#sendForm').disabled = false;
+        }
+
+        ppdCpCheck.addEventListener('click', () => {
+            if (ppdCpCheck.classList.contains('fa-square')) {
+                ppdCpCheck.classList.replace('fa-square', 'fa-square-check')
+                document.querySelector('#sendForm').disabled = false;
+            } else if (ppdCpCheck.classList.contains('fa-square-check')) {
+                ppdCpCheck.classList.replace('fa-square-check', 'fa-square')
+                document.querySelector('#sendForm').disabled = true;
+            }
+            
+        })
 
         function validateSize(input) {
             const fileSize = input.files[0].size / 1024 / 1024,
@@ -101,6 +126,8 @@ export default class EmployerCard {
             console.log(resume.files[0]);
             validateSize(resume);
         });
+
+        document.querySelector('.ppd-span').addEventListener('click', ppd('.ppd-span', ppdText));
 
         function showLoaderIdentity() 
         {
