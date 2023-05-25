@@ -1,16 +1,18 @@
 @import 'staff/variables';
+
+* {
+  font-family: 'Gilroy';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-    margin-right: calc(-1 * (100vw - 100%))
+    // margin-right: calc(-1 * (100vw - 100%));
 }
 body {
     overflow-x: hidden;
     background: url(../img/Vector.png) repeat;
-}
-* {
-    font-family: 'Gilroy';
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 @font-face {

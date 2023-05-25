@@ -1,17 +1,13 @@
-html {
-  margin-right: calc(-1 * (100vw - 100%));
-}
-
-body {
-  overflow-x: hidden;
-  background: url(../img/Vector.png) repeat;
-}
-
 * {
   font-family: "Gilroy";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background: url(../img/Vector.png) repeat;
 }
 
 @font-face {
@@ -518,6 +514,7 @@ body {
   }
   .vacancy__header .title_filler {
     width: 270px;
+    left: -20%;
   }
   .vacancy__cards {
     width: 100%;
@@ -1491,6 +1488,7 @@ body {
 .employersForm {
   background-color: white;
   width: 750px;
+  height: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1518,13 +1516,14 @@ body {
   margin-bottom: 30px;
 }
 .employersForm__wrapper {
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: scroll;
 }
 .employersForm__wrapper .employersTextInput {
-  height: 50px;
+  height: 42px;
   border: 2px solid #003CA5;
   border-radius: 55px;
   padding: 12px 20px;
@@ -1538,13 +1537,16 @@ body {
 }
 .employersForm__wrapper .employersRawElem {
   margin-bottom: 20px;
-  width: 100%;
+  width: 95%;
 }
 .employersForm__wrapper .responsibilities {
   resize: none;
   width: 100%;
   height: 120px;
   border-radius: 20px;
+}
+.employersForm__wrapper .responsibilities__wrapper {
+  width: 95%;
 }
 .employersForm__wrapper span {
   color: #003CA5;
@@ -1701,7 +1703,7 @@ body {
   width: 45%;
 }
 .employersForm__wrapper .employersForm__footer {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1756,15 +1758,12 @@ body {
 }
 
 @media (max-width: 1025px) {
-  .main-overlay {
-    overflow-y: visible;
-  }
   .employersForm {
-    overflow-y: visible;
     width: 500px;
+    height: 450px;
     padding: 10px 0;
     border-radius: 20px;
-    top: 400px;
+    top: 50%;
   }
   .employersForm #employersForm__close {
     font-size: 25px;
@@ -1812,6 +1811,56 @@ body {
   }
   .employersForm__wrapper .employersForm__footer .haveQuestions {
     font-size: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .employersForm {
+    width: 350px;
+    height: 500px;
+    top: 50%;
+  }
+  .employersForm #employersForm__close {
+    font-size: 15px;
+    top: 12px;
+    right: 15px;
+  }
+  .employersForm__header {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .employersForm__wrapper {
+    width: 90%;
+  }
+  .employersForm__wrapper .salary__inputs {
+    width: 100%;
+    padding-left: 10px;
+  }
+  .employersForm__wrapper .salary__inputs .salaryLabel {
+    margin-right: 0px;
+    margin-left: 0px;
+    display: block;
+  }
+  .employersForm__wrapper .salary__inputs .employersTextInput {
+    width: 30%;
+  }
+  .employersForm__wrapper .watchStudents,
+  .employersForm__wrapper .workExp,
+  .employersForm__wrapper .formOfEmployment {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .employersForm__wrapper .watchStudents .radioBlock,
+  .employersForm__wrapper .workExp .radioBlock,
+  .employersForm__wrapper .formOfEmployment .radioBlock {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .employersForm__wrapper .employersForm__footer {
+    margin-top: 20px;
+  }
+  .employersForm__wrapper .employersForm__footer .haveQuestions {
+    font-size: 10px;
+    margin-left: 10px;
   }
 }
 .ppd__wrapper {
