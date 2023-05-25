@@ -38,16 +38,20 @@
                 display: flex;
                 justify-content: start;
                 align-items: center;
-                button {
-                    display: block;
-                    width: 435px;
-                    height: 66px;
+                a,button {
+                    text-decoration: none;
+                    width: 280px;
+                    height: 60px;
                     border-radius: 100px;
-                    background-color: $main-color;
-                    font-weight: 700;
-                    font-size: 25px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    cursor: pointer;
                     color: #FFFFFF;
+                    background-color: $main-color;
                     border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .to__resumeConstructor {
                     width: 282px;
@@ -163,7 +167,7 @@
                     line-height: 35px;
                 }
                 .promo__buttons {
-                    button {
+                    a,button {
                         width: 300px;
                         height: 50px;
                         font-size: 18px;
@@ -228,7 +232,7 @@
                     line-height: 30px;
                 }
                 .promo__buttons {
-                    button {
+                    a,button {
                         height: 50px;
                         font-size: 15px;
                         width: 270px;

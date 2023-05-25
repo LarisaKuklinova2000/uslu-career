@@ -257,16 +257,20 @@ body {
   justify-content: start;
   align-items: center;
 }
-.vacancy__promo-text .promo__buttons button {
-  display: block;
-  width: 435px;
-  height: 66px;
+.vacancy__promo-text .promo__buttons a, .vacancy__promo-text .promo__buttons button {
+  text-decoration: none;
+  width: 280px;
+  height: 60px;
   border-radius: 100px;
-  background-color: #003CA5;
-  font-weight: 700;
-  font-size: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
   color: #FFFFFF;
+  background-color: #003CA5;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .vacancy__promo-text .promo__buttons .to__resumeConstructor {
   width: 282px;
@@ -374,7 +378,7 @@ body {
     font-size: 40px;
     line-height: 35px;
   }
-  .vacancy__promo-text .promo__buttons button {
+  .vacancy__promo-text .promo__buttons a, .vacancy__promo-text .promo__buttons button {
     width: 300px;
     height: 50px;
     font-size: 18px;
@@ -431,7 +435,7 @@ body {
     font-size: 30px;
     line-height: 30px;
   }
-  .vacancy__promo-text .promo__buttons button {
+  .vacancy__promo-text .promo__buttons a, .vacancy__promo-text .promo__buttons button {
     height: 50px;
     font-size: 15px;
     width: 270px;
@@ -560,7 +564,6 @@ body {
   justify-content: space-between;
 }
 .card__buttons a, .card__buttons button {
-  text-align: center;
   text-decoration: none;
   width: 130px;
   height: 45px;
@@ -1240,10 +1243,11 @@ body {
   color: #003CA5;
   transform: rotate(90deg);
 }
-.employers-section .partnership__feed .detailedConditions p {
+.employers-section .partnership__feed .detailedConditions a {
   font-size: 20px;
   color: #003CA5;
   margin-left: 25px;
+  text-decoration: none;
 }
 
 @media (max-width: 1650px) {

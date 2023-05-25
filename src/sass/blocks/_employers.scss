@@ -143,10 +143,11 @@
                     color: $main-color;
                     transform: rotate(90deg);
                 }
-                p {
+                a {
                     font-size: 20px;
                     color: $main-color;
                     margin-left: 25px;
+                    text-decoration: none;
                 }
             }
         }

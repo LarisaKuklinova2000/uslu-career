@@ -60,7 +60,7 @@ export default class EmployerCard {
                 </div>
                 <div class='ppdCp__wrapper'>
                     <i class="fa-regular fa-square ppdCpCheck"></i>
-                    <span class='ppdCp-agree'>Согласен с <span class='cp-span'>политикой конфидециальности</span> и <span class='ppd-span'>правилами обработки персональных данных</span></span>
+                    <span class='ppdCp-agree'>Согласен с <span class='ppd-span'>правилами обработки персональных данных</span></span>
                 </div>
                 <button type="submit" id="sendForm">Отправить</button>
                 <div class="noResume">
