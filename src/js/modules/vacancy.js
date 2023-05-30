@@ -12,7 +12,7 @@ const vacancy = () => {
                 if (item.children.length === 0) {
                     const noCards = document.createElement('div');
                     noCards.classList.add('noCards');
-                    noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутсвуют</div>`
+                    noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутствуют</div>`
                     item.append(noCards)
                 }
             });

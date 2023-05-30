@@ -44,7 +44,7 @@ export default class EmployerCard {
             <form class="form__items" enctype="multipart/form-data" method="post" id="form">
                 <div class="titles">
                     <h2>Откликнуться на вакансию</h2>
-                    <h3>${vacancyInfo.employer.replace(/['"«»]/g, ' ')}, ${vacancyInfo.jobTitle}</h3>
+                    <h3>${vacancyInfo.employer.replace(/['"«»]/g, '')}, ${vacancyInfo.jobTitle}</h3>
                 </div>
                 <input class="hiddenInputs" name="jobTitle" type="text" value='${vacancyInfo.jobTitle}' required>
                 <input class="hiddenInputs" name="employer" type="text" value='${vacancyInfo.employer.replace(/['"«»]/g, ' ')}' required>

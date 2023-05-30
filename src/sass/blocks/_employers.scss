@@ -109,7 +109,6 @@
                 }
                 .included {
                     svg {
-                        height: 30%;
                         width: 30%;
                     }
                 }
@@ -120,7 +119,9 @@
             display: flex;
             justify-content: space-between;
             .connectWithUs {
-                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 299px;
                 height: 66px;
                 border-radius: 100px;
@@ -129,7 +130,10 @@
                 font-size: 25px;
                 color: #FFFFFF;
                 border: none;
-
+                text-decoration: none;
+                div {
+                    text-decoration: none;
+                }
             }
             .detailedConditions {
                 display: flex;
@@ -439,6 +443,10 @@
                     }
                     p {
                         font-size: 15px;
+                        margin-left: 10px;
+                    }
+                    a {
+                        font-size: 10px;
                         margin-left: 10px;
                     }
                 }
