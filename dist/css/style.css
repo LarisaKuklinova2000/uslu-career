@@ -424,6 +424,9 @@ body {
     height: 70px;
     width: 350px;
   }
+  .vacancy__promo {
+    align-items: center;
+  }
   .vacancy__promo-text {
     font-size: 15px;
     line-height: 18px;
@@ -737,6 +740,9 @@ body {
   .footer .copyright, .footer .developers {
     width: max-content;
     margin: 20px auto 0 auto;
+    font-size: 12px;
+  }
+  .footer .policy .ppd-btn {
     font-size: 12px;
   }
 }
@@ -1500,7 +1506,6 @@ body {
 .employersForm {
   background-color: white;
   width: 750px;
-  height: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1508,6 +1513,7 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 30px 0;
   border-radius: 50px;
 }
