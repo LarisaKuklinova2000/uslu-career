@@ -73,6 +73,13 @@
         width: 100%;
     }
     .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        * {
+            display: block;
+
+        }
         svg {
             width: 150px;
             height: 60px;
