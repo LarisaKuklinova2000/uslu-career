@@ -81,21 +81,28 @@ export default class EmployerCard {
               invalidFileTypeMessage = document.querySelector('.invalidFileType'),
               ppdCpCheck = document.querySelector('.ppdCpCheck');
 
-        if (ppdCpCheck.classList.contains('fa-square')) {
-            document.querySelector('#sendForm').disabled = true;
-        } else if (ppdCpCheck.classList.contains('fa-square-check')) {
-            document.querySelector('#sendForm').disabled = false;
+        let ppdAgree = false,
+            resumeSize = false;
+        
+        document.querySelector('#sendForm').disabled = true;
+
+        function validateCheck() {
+            if (ppdAgree === true && resumeSize === true) {
+                document.querySelector('#sendForm').disabled = false;
+            } else {
+                document.querySelector('#sendForm').disabled = true;
+            }
         }
 
         ppdCpCheck.addEventListener('click', () => {
             if (ppdCpCheck.classList.contains('fa-square')) {
                 ppdCpCheck.classList.replace('fa-square', 'fa-square-check')
-                document.querySelector('#sendForm').disabled = false;
+                ppdAgree = true;
             } else if (ppdCpCheck.classList.contains('fa-square-check')) {
                 ppdCpCheck.classList.replace('fa-square-check', 'fa-square')
-                document.querySelector('#sendForm').disabled = true;
+                ppdAgree = false;
             }
-            
+            validateCheck();
         })
 
         function validateSize(input) {
@@ -103,22 +110,23 @@ export default class EmployerCard {
                 fileType = input.files[0].type.split('/')[1].toLowerCase();
 
             if (fileSize > 15 && fileType !== 'pdf') {
-                document.querySelector('#sendForm').disabled = true;
+                resumeSize = false;
                 invalidFileTypeMessage.style.display = 'block';
                 invalidFileSizeMessage.style.display = 'block';
             } else if (fileSize > 15 && fileType === 'pdf') {
-                document.querySelector('#sendForm').disabled = true;
+                resumeSize = false;
                 invalidFileTypeMessage.style.display = 'none';
                 invalidFileSizeMessage.style.display = 'block';
             } else if (fileSize <= 15 && fileType !== 'pdf') {
-                document.querySelector('#sendForm').disabled = true;
+                resumeSize = false;
                 invalidFileSizeMessage.style.display = 'none';
                 invalidFileTypeMessage.style.display = 'block';
             } else {
-                document.querySelector('#sendForm').disabled = false;
+                resumeSize = true;
                 invalidFileSizeMessage.style.display = 'none';
                 invalidFileTypeMessage.style.display = 'none';
             }
+            validateCheck();
         }
 
         resume.addEventListener('change', () => {
