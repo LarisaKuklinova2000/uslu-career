@@ -111,7 +111,7 @@ body {
 .header h1 {
   margin-bottom: 30px;
 }
-.header a {
+.header .main-link, .header .secondary-link {
   width: max-content;
   color: white;
   font-size: 26px;
@@ -121,7 +121,7 @@ body {
   position: relative;
   cursor: pointer;
 }
-.header a:after {
+.header .main-link:after, .header .secondary-link:after {
   display: block;
   position: absolute;
   left: 0;
@@ -139,7 +139,7 @@ body {
 .header .logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
 }
 .header .logo * {
   display: block;
@@ -148,10 +148,59 @@ body {
   width: 150px;
   height: 60px;
 }
+.header .logo .text-logo {
+  height: max-content;
+  font-size: 17px;
+  margin-left: 40px;
+}
+.header .logo .header-btn-adaptive {
+  display: none;
+  color: #003CA5;
+  background-color: white;
+  border: none;
+  text-decoration: none;
+  width: 180px;
+  height: 42px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.header .logo .header-btn-adaptive:hover:after, .header .logo .header-btn-adaptive:focus:after {
+  width: 0;
+}
 .header .text-logo {
   font-size: 20px;
   color: white;
   align-self: self-end;
+}
+.header__btns-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.header__btns-wrapper .header-btn {
+  display: block;
+  color: #003CA5;
+  background-color: white;
+  border: none;
+  text-decoration: none;
+  width: 230px;
+  height: 55px;
+  border-radius: 100px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.header__btns-wrapper .header-btn:hover:after, .header__btns-wrapper .header-btn:focus:after {
+  width: 0;
 }
 
 @media (max-width: 1080px) {
@@ -190,9 +239,15 @@ body {
   .header__item2 {
     justify-content: flex-end;
   }
+  .header .logo {
+    justify-content: space-between;
+  }
   .header .logo svg {
     width: 100px;
     height: 40px;
+  }
+  .header .logo .header-btn-adaptive {
+    display: flex;
   }
   .header .text-logo {
     position: absolute;
@@ -212,6 +267,9 @@ body {
   .header a {
     font-size: 20px;
     line-height: 20px;
+  }
+  .header .header-btn {
+    display: none;
   }
 }
 @media (max-width: 600px) {

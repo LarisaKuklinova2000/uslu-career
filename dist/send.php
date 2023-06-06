@@ -36,7 +36,7 @@ try {
     $mail->setFrom('uslu_career_web@rambler.ru', 'Career'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('gnosticism2@rambler.ru');
+    $mail->addAddress('uslu_career_resume@rambler.ru');
 
     // Прикрипление файлов к письму
 if (!empty($file['name'][0])) {
