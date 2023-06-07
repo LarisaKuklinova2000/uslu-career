@@ -109,15 +109,13 @@
             border-radius: 60px;
         }
     }
-
     &__wrapper {
         width: 100%;
     }
-
     &__cards {
         width: 100%;
         margin-top: 140px;
-        margin-bottom: 110px;
+        margin-bottom: 140px;
         display: grid;
         grid-template-columns: repeat(auto-fit, 400px);
         column-gap: 80px;
