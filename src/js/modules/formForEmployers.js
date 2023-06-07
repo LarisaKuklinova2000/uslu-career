@@ -137,6 +137,7 @@ const formForEmployers = () => {
                 postData('sendVacancyOffer.php', json)
                 .then(data => {
                     alert('Предложение вакансии успешно отправлено, с Вами свяжутся!');
+                    localStorage.clear();
                 }).catch(() => {
                     alert('При отправке произошла ошибка, попробуйте снова');
                 }).finally(() => {
@@ -148,7 +149,7 @@ const formForEmployers = () => {
         }
         bindPostData(document.querySelector('#employersForm'));
 
-        const inputs = document.querySelectorAll('input');
+        const inputs = document.querySelectorAll('.employersTextInput');
 
         for (const input of inputs) {
             input.value = localStorage[`input_${input.name}`] || '';
