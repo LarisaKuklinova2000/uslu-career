@@ -2,10 +2,28 @@ import { getResource } from "../services/requests";
 import EmployerCard from "./card";
 
 const vacancy = () => {
+
+    let consaitingsItems = [],
+        inhouseItems = [],
+        govServeItems = [],
+        apprentice1 = [],
+        apprentice2 = [];
+
     getResource('./vacancy.json')
         .then(res => {
-            res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-            new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init()})
+                res.vacancy.map(item => {
+                if (item.category == 'govServe') {
+                    govServeItems.push(item);
+                } else if (item.category == 'consulting') {
+                    consaitingsItems.push(item);
+                } else if (item.category == 'in-house') {
+                    inhouseItems.push(item);
+                } else if (item.category == 'apprentice1') {
+                    apprentice1.push(item);
+                } else if (item.category == 'apprentice2') {
+                    apprentice2.push(item);
+                }
+            })
         })
         .then(() => {
             document.querySelectorAll('.vacancy__cards').forEach(item => {
@@ -27,6 +45,12 @@ const vacancy = () => {
                 }
             });
         });
+
+        return {consaitingsItems,
+                inhouseItems,
+                govServeItems,
+                apprentice1,
+                apprentice2}
 }
 
 export default vacancy;

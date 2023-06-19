@@ -42,8 +42,9 @@ class EmployerCard {
                 <button class="feed" data-id=${this.id}>Связаться</button>
             </div>
         `;
-    document.querySelector(`#${this.category}Cards`).append(element);
+    // document.querySelector(`#${this.category}Cards`).append(element);
   }
+
   openModal(id) {
     let vacancyInfo = this.vacancyArr.filter(item => item.id == id)[0];
     const element = document.createElement('div');
@@ -667,19 +668,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const vacancy = () => {
+  let consaitingsItems = [],
+    inhouseItems = [],
+    govServeItems = [],
+    apprentice1 = [],
+    apprentice2 = [];
   (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.getResource)('./vacancy.json').then(res => {
-    res.vacancy.map(_ref => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed
-      } = _ref;
-      new _card__WEBPACK_IMPORTED_MODULE_1__["default"](id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init();
+    res.vacancy.map(item => {
+      if (item.category == 'govServe') {
+        govServeItems.push(item);
+      } else if (item.category == 'consulting') {
+        consaitingsItems.push(item);
+      } else if (item.category == 'in-house') {
+        inhouseItems.push(item);
+      } else if (item.category == 'apprentice1') {
+        apprentice1.push(item);
+      } else if (item.category == 'apprentice2') {
+        apprentice2.push(item);
+      }
     });
   }).then(() => {
     document.querySelectorAll('.vacancy__cards').forEach(item => {
@@ -700,6 +706,13 @@ const vacancy = () => {
       }
     });
   });
+  return {
+    consaitingsItems,
+    inhouseItems,
+    govServeItems,
+    apprentice1,
+    apprentice2
+  };
 };
 /* harmony default export */ __webpack_exports__["default"] = (vacancy);
 
