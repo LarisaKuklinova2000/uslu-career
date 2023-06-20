@@ -28,7 +28,7 @@ export default class EmployerCard {
                 <button class="feed" data-id=${this.id}>Связаться</button>
             </div>
         `;
-        // document.querySelector(`#${this.category}Cards`).append(element);
+        document.querySelector(`#${this.category}Cards`).append(element);
     }
 
     openModal(id) {

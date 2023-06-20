@@ -4,6 +4,7 @@ import vacancy from "./modules/vacancy";
 import formForEmployers from "./modules/formForEmployers";
 import ppd from "./modules/ppd";
 import ppdText from "./modules/ppdText";
+import filterCards from "./modules/filterCards";
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
@@ -15,5 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     formForEmployers();
     ppd('.ppd-btn', ppdText);
+
+    // filterCards();
 
 });

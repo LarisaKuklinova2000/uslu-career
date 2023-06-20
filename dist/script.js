@@ -42,9 +42,8 @@ class EmployerCard {
                 <button class="feed" data-id=${this.id}>Связаться</button>
             </div>
         `;
-    // document.querySelector(`#${this.category}Cards`).append(element);
+    document.querySelector(`#${this.category}Cards`).append(element);
   }
-
   openModal(id) {
     let vacancyInfo = this.vacancyArr.filter(item => item.id == id)[0];
     const element = document.createElement('div');
@@ -208,6 +207,38 @@ class EmployerCard {
     this.setListeners();
   }
 }
+
+/***/ }),
+
+/***/ "./src/js/modules/filterCards.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/filterCards.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vacancy_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vacancy.js */ "./src/js/modules/vacancy.js");
+/* harmony import */ var _card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./card */ "./src/js/modules/card.js");
+
+
+const filterCards = () => {
+  const {
+    consaitingsItems,
+    inhouseItems,
+    govServeItems,
+    apprentice1,
+    apprentice2
+  } = (0,_vacancy_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  console.log(consaitingsItems);
+  document.querySelectorAll('.vacancy__cards').forEach(cardWrapper => {
+    if (cardWrapper.id == 'consultingCards') {
+      consaitingsItems.map(item => {
+        console.log(item.id);
+      });
+    }
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (filterCards);
 
 /***/ }),
 
@@ -668,24 +699,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const vacancy = () => {
-  let consaitingsItems = [],
-    inhouseItems = [],
-    govServeItems = [],
-    apprentice1 = [],
-    apprentice2 = [];
   (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.getResource)('./vacancy.json').then(res => {
-    res.vacancy.map(item => {
-      if (item.category == 'govServe') {
-        govServeItems.push(item);
-      } else if (item.category == 'consulting') {
-        consaitingsItems.push(item);
-      } else if (item.category == 'in-house') {
-        inhouseItems.push(item);
-      } else if (item.category == 'apprentice1') {
-        apprentice1.push(item);
-      } else if (item.category == 'apprentice2') {
-        apprentice2.push(item);
-      }
+    res.vacancy.map(_ref => {
+      let {
+        id,
+        category,
+        employer,
+        jobTitle,
+        salary,
+        tags,
+        link,
+        feed
+      } = _ref;
+      new _card__WEBPACK_IMPORTED_MODULE_1__["default"](id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init();
     });
   }).then(() => {
     document.querySelectorAll('.vacancy__cards').forEach(item => {
@@ -706,13 +732,6 @@ const vacancy = () => {
       }
     });
   });
-  return {
-    consaitingsItems,
-    inhouseItems,
-    govServeItems,
-    apprentice1,
-    apprentice2
-  };
 };
 /* harmony default export */ __webpack_exports__["default"] = (vacancy);
 
@@ -819,6 +838,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_formForEmployers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formForEmployers */ "./src/js/modules/formForEmployers.js");
 /* harmony import */ var _modules_ppd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/ppd */ "./src/js/modules/ppd.js");
 /* harmony import */ var _modules_ppdText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/ppdText */ "./src/js/modules/ppdText.js");
+/* harmony import */ var _modules_filterCards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/filterCards */ "./src/js/modules/filterCards.js");
+
 
 
 
@@ -833,6 +854,8 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_vacancy__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_formForEmployers__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_ppd__WEBPACK_IMPORTED_MODULE_4__["default"])('.ppd-btn', _modules_ppdText__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+  // filterCards();
 });
 }();
 /******/ })()
