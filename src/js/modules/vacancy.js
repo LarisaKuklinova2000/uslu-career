@@ -6,7 +6,8 @@ const vacancy = () => {
     getResource('./vacancy.json')
         .then(res => {
             res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-            new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init()})
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init()
+            });
         })
         .then(() => {
             document.querySelectorAll('.vacancy__cards').forEach(item => {

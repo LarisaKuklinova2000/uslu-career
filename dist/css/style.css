@@ -1999,3 +1999,11 @@ body {
   --animate-duration: 0.3s;
   overflow: hidden;
 }
+
+.filters__wrapper {
+  margin: 70px auto 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}

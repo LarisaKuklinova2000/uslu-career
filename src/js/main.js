@@ -17,6 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     formForEmployers();
     ppd('.ppd-btn', ppdText);
 
-    // filterCards();
+    filterCards();
 
 });
