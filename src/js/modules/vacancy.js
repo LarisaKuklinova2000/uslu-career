@@ -1,12 +1,12 @@
 import { getResource } from "../services/requests";
-import EmployerCard from "./card";
+import renderSingleCard from "./card";
 
 const vacancy = () => {
 
     getResource('./vacancy.json')
         .then(res => {
             res.vacancy.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy).init()
+                renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy)
             });
         })
         .then(() => {
