@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ppdText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ppdText */ "./src/js/modules/ppdText.js");
 
 
-const renderSingleCard = (id, category, jobTitle, employer, salary, tags) => {
+const renderSingleCard = (id, category, jobTitle, employer, salary, tags, link) => {
   const element = document.createElement('div');
   element.classList.add('card', `card${id}`);
   element.style.background = `white`;
@@ -23,7 +23,7 @@ const renderSingleCard = (id, category, jobTitle, employer, salary, tags) => {
             <div class="card__salary">${salary}</div>
             <div class="card__tags">${tags.join('<br>')}</div>
             <div class="card__buttons">
-                <button class="moreInfoBtn">Подробнее</button>
+                <a target="_blank" href=${link} class="moreInfoBtn">Подробнее</a>
                 <button class="feed" data-id=${id}>Связаться</button>
             </div>
         `;
