@@ -16,8 +16,8 @@ const renderSingleCard = (id, category, jobTitle, employer, salary, tags, link) 
             </div>
         `;
     
-        document.querySelector(`#${category}Cards`).append(element);
-        // return element;
+        // document.querySelector(`#${category}Cards`).append(element);
+        return element;
 }
 
 export default renderSingleCard;

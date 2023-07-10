@@ -27,10 +27,10 @@ const renderSingleCard = (id, category, jobTitle, employer, salary, tags, link) 
                 <button class="feed" data-id=${id}>Связаться</button>
             </div>
         `;
-  document.querySelector(`#${category}Cards`).append(element);
-  // return element;
-};
 
+  // document.querySelector(`#${category}Cards`).append(element);
+  return element;
+};
 /* harmony default export */ __webpack_exports__["default"] = (renderSingleCard);
 
 // export default class EmployerCard {
@@ -708,8 +708,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const vacancy = () => {
+  let consultingArr = [],
+    govServeArr = [],
+    inhouseArr = [],
+    apprentice1Arr = [],
+    apprentice2Arr = [];
   (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.getResource)('./vacancy.json').then(res => {
-    res.vacancy.map(_ref => {
+    res.vacancy.map(item => {
+      if (item.category === 'govServe') {
+        govServeArr.push(item);
+      } else if (item.category === 'consulting') {
+        consultingArr.push(item);
+      } else if (item.category === 'in-house') {
+        inhouseArr.push(item);
+      } else if (item.category === 'apprentice1') {
+        apprentice1Arr.push(item);
+      } else if (item.category === 'apprentice2') {
+        apprentice2Arr.push(item);
+      }
+    });
+    consultingArr.map(_ref => {
       let {
         id,
         category,
@@ -720,7 +738,90 @@ const vacancy = () => {
         link,
         feed
       } = _ref;
-      (0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy);
+      document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+    });
+    govServeArr.map(_ref2 => {
+      let {
+        id,
+        category,
+        employer,
+        jobTitle,
+        salary,
+        tags,
+        link,
+        feed
+      } = _ref2;
+      document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+    });
+    inhouseArr.map(_ref3 => {
+      let {
+        id,
+        category,
+        employer,
+        jobTitle,
+        salary,
+        tags,
+        link,
+        feed
+      } = _ref3;
+      document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+    });
+    apprentice1Arr.map(_ref4 => {
+      let {
+        id,
+        category,
+        employer,
+        jobTitle,
+        salary,
+        tags,
+        link,
+        feed
+      } = _ref4;
+      document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+    });
+    apprentice2Arr.map(_ref5 => {
+      let {
+        id,
+        category,
+        employer,
+        jobTitle,
+        salary,
+        tags,
+        link,
+        feed
+      } = _ref5;
+      document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+    });
+    const salaryNum = str => parseInt(str.split('-')[0].replace(/ /g, ''));
+    const salaryFilterBtns = document.querySelectorAll('.salaryFilter');
+    const salarySortArr = (categoryName, arr) => {
+      document.querySelector(`#${categoryName}Cards`).innerHTML = '';
+      arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(_ref6 => {
+        let {
+          id,
+          category,
+          employer,
+          jobTitle,
+          salary,
+          tags,
+          link,
+          feed
+        } = _ref6;
+        document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_1__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy));
+      });
+    };
+    salaryFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('consulting')) {
+          salarySortArr('consulting', consultingArr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('in-house')) {
+          salarySortArr('in-house', inhouseArr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
+          salarySortArr('govServe', govServeArr);
+        }
+      });
     });
   }).then(() => {
     document.querySelectorAll('.vacancy__cards').forEach(item => {
