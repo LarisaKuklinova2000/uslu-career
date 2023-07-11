@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { getResource } from "../services/requests";
 import renderSingleCard from "./card";
 
@@ -25,29 +26,45 @@ const vacancy = () => {
                 }
             });
 
-            consultingArr.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+            consultingArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
             });
-            govServeArr.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+            govServeArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
             });
-            inhouseArr.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+            inhouseArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
             });
-            apprentice1Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+            apprentice1Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
             });
-            apprentice2Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+            apprentice2Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
             });
 
             const salaryNum = (str) => parseInt(str.split('-')[0].replace(/ /g,''))
 
-            const salaryFilterBtns = document.querySelectorAll('.salaryFilter');
+            const salaryFilterBtns = document.querySelectorAll('.salaryFilter'),
+                  dateFilterBtns = document.querySelectorAll('.dateFilter'),
+                  employerFilterBtns = document.querySelectorAll('.employerFilter');
 
             const salarySortArr = (categoryName, arr) => {
                 document.querySelector(`#${categoryName}Cards`).innerHTML = '';
                 arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
+                    document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+                });
+            }
+
+            const dateSortArr = (categoryName, arr) => {
+                document.querySelector(`#${categoryName}Cards`).innerHTML = '';
+                arr.sort((a, b) => moment(b.date) - moment(a.date)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
+                    document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+                });
+            }
+
+            const employerSortArr = (categoryName, arr) => {
+                document.querySelector(`#${categoryName}Cards`).innerHTML = '';
+                arr.sort((a, b) => a.employer.localeCompare(b.employer)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
                     document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
                 });
             }
@@ -64,6 +81,38 @@ const vacancy = () => {
 
                     if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
                         salarySortArr('govServe', govServeArr);
+                    }
+                })
+            })
+
+            dateFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('consulting')) {
+                        dateSortArr('consulting', consultingArr);
+                    }
+                    
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('in-house')) {
+                        dateSortArr('in-house', inhouseArr);
+                    }
+
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
+                        dateSortArr('govServe', govServeArr);
+                    }
+                })
+            })
+
+            employerFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('consulting')) {
+                        employerSortArr('consulting', consultingArr);
+                    }
+                    
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('in-house')) {
+                        employerSortArr('in-house', inhouseArr);
+                    }
+
+                    if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
+                        employerSortArr('govServe', govServeArr);
                     }
                 })
             })
