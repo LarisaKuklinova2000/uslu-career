@@ -736,6 +736,7 @@ const vacancy = () => {
         apprentice2Arr.push(item);
       }
     });
+    const salaryNum = str => parseInt(str.split('-')[0].replace(/ /g, ''));
     consultingArr.map(_ref => {
       let {
         id,
@@ -806,7 +807,19 @@ const vacancy = () => {
       } = _ref5;
       document.querySelector(`#${category}Cards`).append((0,_card__WEBPACK_IMPORTED_MODULE_2__["default"])(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy));
     });
-    const salaryNum = str => parseInt(str.split('-')[0].replace(/ /g, ''));
+    document.querySelectorAll('.vacancy__cards').forEach(item => {
+      const filtersElem = document.createElement('div');
+      filtersElem.classList.add('filters__wrapper');
+      filtersElem.innerHTML = `
+                    <div class="filters__item filters__text">Сортировать по:</div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter-button salaryFilter">Зарплате</button></div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter-button dateFilter">Новизне</button></div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter-button employerFilter">Работодателю</button></div>
+                `;
+      if (item.children.length !== 0) {
+        item.closest('.vacancy__wrapper').insertBefore(filtersElem, item);
+      }
+    });
     const salaryFilterBtns = document.querySelectorAll('.salaryFilter'),
       dateFilterBtns = document.querySelectorAll('.dateFilter'),
       employerFilterBtns = document.querySelectorAll('.employerFilter');
@@ -869,6 +882,12 @@ const vacancy = () => {
         if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
           salarySortArr('govServe', govServeArr);
         }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice1')) {
+          salarySortArr('apprentice1', apprentice1Arr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice2')) {
+          salarySortArr('apprentice2', apprentice2Arr);
+        }
       });
     });
     dateFilterBtns.forEach(btn => {
@@ -882,6 +901,12 @@ const vacancy = () => {
         if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
           dateSortArr('govServe', govServeArr);
         }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice1')) {
+          dateSortArr('apprentice1', apprentice1Arr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice2')) {
+          dateSortArr('apprentice2', apprentice2Arr);
+        }
       });
     });
     employerFilterBtns.forEach(btn => {
@@ -894,6 +919,12 @@ const vacancy = () => {
         }
         if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('govServe')) {
           employerSortArr('govServe', govServeArr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice1')) {
+          employerSortArr('apprentice1', apprentice1Arr);
+        }
+        if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('apprentice2')) {
+          employerSortArr('apprentice2', apprentice2Arr);
         }
       });
     });
