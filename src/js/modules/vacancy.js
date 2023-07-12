@@ -1,6 +1,6 @@
 import moment from "moment/moment";
 import { getResource } from "../services/requests";
-import renderSingleCard from "./card";
+import EmployerCard from "./card";
 
 const vacancy = () => {
 
@@ -29,19 +29,19 @@ const vacancy = () => {
             const salaryNum = (str) => parseInt(str.split('-')[0].replace(/ /g,''))
 
             consultingArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
             });
             govServeArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
             });
             inhouseArr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
             });
             apprentice1Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
             });
             apprentice2Arr.map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
-                document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy))
+                new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
             });
 
             document.querySelectorAll('.vacancy__cards').forEach(item => {
@@ -64,22 +64,22 @@ const vacancy = () => {
 
             const salarySortArr = (categoryName, arr) => {
                 document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-                arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                    document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+                arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                    new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
                 });
             }
 
             const dateSortArr = (categoryName, arr) => {
                 document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-                arr.sort((a, b) => moment(b.date) - moment(a.date)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                    document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+                arr.sort((a, b) => moment(b.date) - moment(a.date)).map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                    new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
                 });
             }
 
             const employerSortArr = (categoryName, arr) => {
                 document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-                arr.sort((a, b) => a.employer.localeCompare(b.employer)).map(({id, category, employer, jobTitle, salary, tags, link, feed}) => {
-                    document.querySelector(`#${category}Cards`).append(renderSingleCard(id, category, employer, jobTitle, salary, tags, link, feed, res.vacancy))
+                arr.sort((a, b) => a.employer.localeCompare(b.employer)).map(({id, category, employer, jobTitle, salary, tags, link, feed, date}) => {
+                    new EmployerCard(id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init()
                 });
             }
 
