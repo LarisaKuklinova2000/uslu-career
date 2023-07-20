@@ -30,7 +30,7 @@ class EmployerCard {
   }
   renderCards() {
     const element = document.createElement('div');
-    element.classList.add('card', `card${this.id}`);
+    element.classList.add('card', `card${this.id}`, 'animate__animated', 'animate__fadeIn');
     element.style.background = `white`;
     element.innerHTML = `
             <div class="card__title">${this.employer}</div>
@@ -696,95 +696,9 @@ const vacancy = () => {
       }
     });
     const salaryNum = str => parseInt(str.split('-')[0].replace(/ /g, ''));
-    consultingArr.map(_ref => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed,
-        date
-      } = _ref;
-      new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
-    });
-    govServeArr.map(_ref2 => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed,
-        date
-      } = _ref2;
-      new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
-    });
-    inhouseArr.map(_ref3 => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed,
-        date
-      } = _ref3;
-      new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
-    });
-    apprentice1Arr.map(_ref4 => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed,
-        date
-      } = _ref4;
-      new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
-    });
-    apprentice2Arr.map(_ref5 => {
-      let {
-        id,
-        category,
-        employer,
-        jobTitle,
-        salary,
-        tags,
-        link,
-        feed,
-        date
-      } = _ref5;
-      new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
-    });
-    document.querySelectorAll('.vacancy__cards').forEach(item => {
-      const filtersElem = document.createElement('div');
-      filtersElem.classList.add('filters__wrapper');
-      filtersElem.innerHTML = `
-                    <div class="filters__item filters__text">Сортировать по:</div>
-                    <div class="filters__item filters__button-wrapper"><button class="filter-button salaryFilter">Зарплате</button></div>
-                    <div class="filters__item filters__button-wrapper"><button class="filter-button dateFilter">Новизне</button></div>
-                    <div class="filters__item filters__button-wrapper"><button class="filter-button employerFilter">Работодателю</button></div>
-                `;
-      if (item.children.length !== 0) {
-        item.closest('.vacancy__wrapper').insertBefore(filtersElem, item);
-      }
-    });
-    const salaryFilterBtns = document.querySelectorAll('.salaryFilter'),
-      dateFilterBtns = document.querySelectorAll('.dateFilter'),
-      employerFilterBtns = document.querySelectorAll('.employerFilter');
     const salarySortArr = (categoryName, arr) => {
       document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-      arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(_ref6 => {
+      arr.sort((a, b) => salaryNum(b.salary) - salaryNum(a.salary)).map(_ref => {
         let {
           id,
           category,
@@ -795,13 +709,13 @@ const vacancy = () => {
           link,
           feed,
           date
-        } = _ref6;
+        } = _ref;
         new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
       });
     };
     const dateSortArr = (categoryName, arr) => {
       document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-      arr.sort((a, b) => moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(b.date) - moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(a.date)).map(_ref7 => {
+      arr.sort((a, b) => moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(b.date) - moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(a.date)).map(_ref2 => {
         let {
           id,
           category,
@@ -812,13 +726,13 @@ const vacancy = () => {
           link,
           feed,
           date
-        } = _ref7;
+        } = _ref2;
         new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
       });
     };
     const employerSortArr = (categoryName, arr) => {
       document.querySelector(`#${categoryName}Cards`).innerHTML = '';
-      arr.sort((a, b) => a.employer.localeCompare(b.employer)).map(_ref8 => {
+      arr.sort((a, b) => a.employer.localeCompare(b.employer)).map(_ref3 => {
         let {
           id,
           category,
@@ -829,10 +743,41 @@ const vacancy = () => {
           link,
           feed,
           date
-        } = _ref8;
+        } = _ref3;
         new _card__WEBPACK_IMPORTED_MODULE_2__["default"](id, category, employer, jobTitle, salary, tags, link, feed, date, res.vacancy).init();
       });
     };
+    salarySortArr('consulting', consultingArr);
+    salarySortArr('in-house', inhouseArr);
+    salarySortArr('govServe', govServeArr);
+    salarySortArr('apprentice1', apprentice1Arr);
+    salarySortArr('apprentice2', apprentice2Arr);
+    document.querySelectorAll('.vacancy__cards').forEach(item => {
+      const filtersElem = document.createElement('div');
+      filtersElem.classList.add('filters__wrapper');
+      filtersElem.innerHTML = `
+                    <div class="filters__item filters__text">Сортировать по:</div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter__button salaryFilter filter__button-active">Зарплате</button></div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter__button dateFilter">Новизне</button></div>
+                    <div class="filters__item filters__button-wrapper"><button class="filter__button employerFilter">Работодателю</button></div>
+                `;
+      if (item.children.length !== 0) {
+        item.closest('.vacancy__wrapper').insertBefore(filtersElem, item);
+      }
+    });
+    document.querySelectorAll('.filters__wrapper').forEach(filtersBlock => {
+      filtersBlock.addEventListener('click', e => {
+        if (e.target.classList.contains('filter__button')) {
+          filtersBlock.querySelectorAll('.filter__button').forEach(item => {
+            item.classList.remove('filter__button-active');
+          });
+          e.target.classList.add('filter__button-active');
+        }
+      });
+    });
+    const salaryFilterBtns = document.querySelectorAll('.salaryFilter'),
+      dateFilterBtns = document.querySelectorAll('.dateFilter'),
+      employerFilterBtns = document.querySelectorAll('.employerFilter');
     salaryFilterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.closest('.filters__wrapper').nextElementSibling.id.includes('consulting')) {

@@ -16,7 +16,7 @@ export default class EmployerCard {
 
     renderCards() {
         const element = document.createElement('div');
-        element.classList.add('card', `card${this.id}`);
+        element.classList.add('card', `card${this.id}`, 'animate__animated', 'animate__fadeIn');
         element.style.background = `white`;
         element.innerHTML = `
             <div class="card__title">${this.employer}</div>

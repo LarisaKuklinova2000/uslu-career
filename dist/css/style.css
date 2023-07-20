@@ -10,13 +10,6 @@ body {
   background: url(../img/Vector.png) repeat;
 }
 
-.filters__wrapper {
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
 @font-face {
   font-family: "Gilroy";
   src: url("../fonts/Gilroy-Regular.eot");
@@ -403,7 +396,7 @@ body {
 }
 .vacancy__cards {
   width: 100%;
-  margin-top: 140px;
+  margin-top: 70px;
   margin-bottom: 140px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 400px);
@@ -2006,4 +1999,35 @@ body {
   transition: all 0.3 ease;
   --animate-duration: 0.3s;
   overflow: hidden;
+}
+
+.filters__wrapper {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.filters__wrapper .filters__item {
+  width: 20%;
+  text-align: center;
+  font-size: 22px;
+  color: #003CA5;
+}
+.filters__wrapper .filters__item .filter__button {
+  width: 100%;
+  height: 37px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 3px solid #003CA5;
+  background: none;
+  color: #003CA5;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.filters__wrapper .filters__item .filter__button-active {
+  background-color: #003CA5;
+  color: white;
 }
