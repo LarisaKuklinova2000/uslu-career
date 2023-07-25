@@ -30,7 +30,7 @@ $body = "
 <b>Адрес организации:</b> $empAdress<br>
 <b>Зарплата:</b> от $salaryMin до $salaryMax<br>
 <b>Основные обязанности:</b> $responsibilities<br>
-<b>Рассматривают студентов?</b> $students<br>
+<b>С какого курса?</b> $students<br>
 <b>Нужен ли опыт работы?:</b> $workExp<br>
 <b>Форма трудоустрйоства:</b> $formOfEmployment<br>
 <b>Контактное лицо:</b> $contactPerson<br>
