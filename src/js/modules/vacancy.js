@@ -163,7 +163,7 @@ const vacancy = () => {
                 if (item.children.length === 0) {
                     const noCards = document.createElement('div');
                     noCards.classList.add('noCards');
-                    noCards.innerHTML = `<div class='noCards'>В настоящее время вакансии в данной категории отсутствуют</div>`
+                    noCards.innerHTML = `<div class='noCards'>Сейчас предложений нет, но мы уже начали искать новые карьерные возможности. Записывайся на <b><a href="https://vk.com/uslu.career?w=product-216548247_7541562" target="_blank">карьерную консультацию</a></b> и мы подберем лучшие вакансии и стажировки именно для тебя</div>`;
                     item.append(noCards)
                 }
             });

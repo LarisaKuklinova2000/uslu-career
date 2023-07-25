@@ -27,36 +27,76 @@ const formForEmployers = () => {
                 ></textarea>
             </div>
             <div class="watchStudents employersRawElem">
-                <span>Рассматриваете студентов?</span>
+                <span>С какого курса?</span>
                 <div class="radioBlock">
                     <input
                         type="radio"
-                        id="studentsYes"
+                        id="students1"
                         name="students"
-                        value="Yes"
+                        value="1course"
                         checked />
-                    <label for="studentsYes">Да</label>
+                    <label for="students1">1</label>
                 </div>
                 
                 <div class="radioBlock">
-                    <input type="radio" id="studentsNo" name="students" value="No" />
-                    <label for="studentsNo">Нет</label>
+                    <input
+                        type="radio"
+                        id="students2"
+                        name="students"
+                        value="2-3course"
+                        checked />
+                    <label for="students2">2-3</label>
+                </div>
+                
+                <div class="radioBlock">
+                    <input
+                        type="radio"
+                        id="students3"
+                        name="students"
+                        value="4-5course"
+                        checked />
+                    <label for="students3">4-5</label>
+                </div>
+                
+                <div class="radioBlock">
+                    <input type="radio" id="studentsNo" name="students" value="graduate" />
+                    <label for="studentsNo">Выпускник</label>
                 </div>
             
 
             </div>
 
             <div class="workExp employersRawElem">
-                <span>Нужен опыт работы?</span>
+                <span>Нужен опыт?</span>
 
                 <div class="radioBlock">
                     <input
                         type="radio"
-                        id="workExpYes"
+                        id="workExp1"
                         name="workExp"
-                        value="Yes"
+                        value="1year"
                         checked />
-                    <label for="workExpYes">Да</label>
+                    <label for="workExp1">1 год</label>
+                </div>
+                
+                <div class="radioBlock">
+                    <input
+                        type="radio"
+                        id="workExp2"
+                        name="workExp"
+                        value="2year"
+                        checked />
+                    <label for="workExp2">2 года</label>
+                </div>
+                
+                <div class="radioBlock">
+                    <input
+                        type="radio"
+                        id="workExp3"
+                        name="workExp"
+                        value="3year"
+                        checked />
+                    <label for="workExp3">3 года</label>
                 </div>
 
                 <div class="radioBlock">

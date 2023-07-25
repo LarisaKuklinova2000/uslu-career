@@ -1685,7 +1685,7 @@ body {
 .employersForm__wrapper .formOfEmployment .radioBlock {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 20px;
   position: relative;
 }
 .employersForm__wrapper .watchStudents .radioBlock *,
@@ -1792,7 +1792,7 @@ body {
 }
 .employersForm__wrapper .watchStudents span,
 .employersForm__wrapper .workExp span {
-  width: 210px;
+  width: 128px;
 }
 .employersForm__wrapper .connectInfo__inputs {
   display: flex;
@@ -1886,7 +1886,7 @@ body {
     height: 80px;
   }
   .employersForm__wrapper .salary__inputs {
-    width: 100%;
+    width: 93%;
   }
   .employersForm__wrapper .salary__inputs .salaryLabel {
     margin-right: 0px;
@@ -1904,6 +1904,12 @@ body {
   .employersForm__wrapper .workExp .radioBlock,
   .employersForm__wrapper .formOfEmployment .radioBlock {
     margin-left: 5px;
+  }
+  .employersForm__wrapper .watchStudents span,
+  .employersForm__wrapper .workExp span,
+  .employersForm__wrapper .formOfEmployment span {
+    width: 101px;
+    margin-left: 0px;
   }
   .employersForm__wrapper .employersForm__footer {
     margin-top: 20px;
@@ -1935,18 +1941,24 @@ body {
     padding-left: 10px;
   }
   .employersForm__wrapper .salary__inputs .salaryLabel {
-    margin-right: 0px;
-    margin-left: 0px;
     display: block;
+    width: 50%;
+    margin: 0 auto;
   }
   .employersForm__wrapper .salary__inputs .employersTextInput {
-    width: 30%;
+    width: 46%;
   }
   .employersForm__wrapper .watchStudents,
   .employersForm__wrapper .workExp,
   .employersForm__wrapper .formOfEmployment {
     flex-direction: column;
     justify-content: start;
+  }
+  .employersForm__wrapper .watchStudents span,
+  .employersForm__wrapper .workExp span,
+  .employersForm__wrapper .formOfEmployment span {
+    text-align: center;
+    width: 200px;
   }
   .employersForm__wrapper .watchStudents .radioBlock,
   .employersForm__wrapper .workExp .radioBlock,
