@@ -262,8 +262,7 @@ const formForEmployers = () => {
                         type="radio"
                         id="students2"
                         name="students"
-                        value="2-3course"
-                        checked />
+                        value="2-3course" />
                     <label for="students2">2-3</label>
                 </div>
                 
@@ -272,8 +271,7 @@ const formForEmployers = () => {
                         type="radio"
                         id="students3"
                         name="students"
-                        value="4-5course"
-                        checked />
+                        value="4-5course" />
                     <label for="students3">4-5</label>
                 </div>
                 
@@ -281,8 +279,6 @@ const formForEmployers = () => {
                     <input type="radio" id="studentsNo" name="students" value="graduate" />
                     <label for="studentsNo">Выпускник</label>
                 </div>
-            
-
             </div>
 
             <div class="workExp employersRawElem">
@@ -303,8 +299,7 @@ const formForEmployers = () => {
                         type="radio"
                         id="workExp2"
                         name="workExp"
-                        value="2year"
-                        checked />
+                        value="2year" />
                     <label for="workExp2">2 года</label>
                 </div>
                 
@@ -313,8 +308,7 @@ const formForEmployers = () => {
                         type="radio"
                         id="workExp3"
                         name="workExp"
-                        value="3year"
-                        checked />
+                        value="3year" />
                     <label for="workExp3">3 года</label>
                 </div>
 

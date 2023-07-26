@@ -19,7 +19,6 @@ $formOfEmployment = $_POST['formOfEmployment'];
 $contactPerson = $_POST['contactPerson'];
 $email = $_POST['employersEmail'];
 $employersPhone = $_POST['employersPhone'];
-$file = $_FILES['resumeFile'];
 
 // Формирование самого письма
 $title = "Предлагаемая вакансия";
@@ -31,8 +30,8 @@ $body = "
 <b>Зарплата:</b> от $salaryMin до $salaryMax<br>
 <b>Основные обязанности:</b> $responsibilities<br>
 <b>С какого курса?</b> $students<br>
-<b>Нужен ли опыт работы?:</b> $workExp<br>
-<b>Форма трудоустрйоства:</b> $formOfEmployment<br>
+<b>Нужен опыт работы?:</b> $workExp<br>
+<b>Форма занятости:</b> $formOfEmployment<br>
 <b>Контактное лицо:</b> $contactPerson<br>
 <b>Почта:</b> $email<br><br>
 <b>Телефон для связи:</b> $employersPhone<br>
@@ -44,7 +43,7 @@ try {
     $mail->isSMTP();   
     $mail->CharSet = "UTF-8";
     $mail->SMTPAuth   = true;
-    $mail->SMTPDebug = 2;
+    // $mail->SMTPDebug = 2;
     $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
     $mail->Host       = 'smtp.rambler.ru'; // SMTP сервера вашей почты
@@ -57,19 +56,7 @@ try {
     // Получатель письма
     $mail->addAddress('uslu_career_resume@rambler.ru');
 
-    // Прикрипление файлов к письму
-if (!empty($file['name'][0])) {
-    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-        $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-        $filename = $file['name'][$ct];
-        if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-            $mail->addAttachment($uploadfile, $filename);
-            $rfile[] = "Файл $filename прикреплён";
-        } else {
-            $rfile[] = "Не удалось прикрепить файл $filename";
-        }
-    }   
-}
+
 // Отправка сообщения
 $mail->isHTML(true);
 $mail->Subject = $title;
