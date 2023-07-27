@@ -772,6 +772,7 @@ body {
 .footer .copyright a, .footer .developers a {
   text-decoration: none;
   color: #003CA5;
+  font-weight: bold;
 }
 .footer .developers a {
   font-weight: bold;
@@ -1325,6 +1326,7 @@ body {
   color: #003CA5;
   margin-left: 25px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 @media (max-width: 1650px) {
@@ -1791,8 +1793,9 @@ body {
   transform: scale(0);
 }
 .employersForm__wrapper .watchStudents span,
-.employersForm__wrapper .workExp span {
-  width: 128px;
+.employersForm__wrapper .workExp span,
+.employersForm__wrapper .formOfEmployment span {
+  width: 175px;
 }
 .employersForm__wrapper .connectInfo__inputs {
   display: flex;
@@ -1908,7 +1911,7 @@ body {
   .employersForm__wrapper .watchStudents span,
   .employersForm__wrapper .workExp span,
   .employersForm__wrapper .formOfEmployment span {
-    width: 101px;
+    width: 82px;
     margin-left: 0px;
   }
   .employersForm__wrapper .employersForm__footer {
